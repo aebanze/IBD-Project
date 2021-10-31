@@ -27,55 +27,166 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        telaPrincipal = new javax.swing.JDesktopPane();
+        jLabel1 = new javax.swing.JLabel();
+        lblUsuario = new javax.swing.JLabel();
+        lblData = new javax.swing.JLabel();
+        lblIcon = new javax.swing.JLabel();
+        barraMenu = new javax.swing.JMenuBar();
+        reg = new javax.swing.JMenu();
+        regCliente = new javax.swing.JMenuItem();
+        regVenda = new javax.swing.JMenuItem();
+        regUsuario = new javax.swing.JMenuItem();
+        regProduto = new javax.swing.JMenuItem();
+        opc = new javax.swing.JMenu();
+        opcSair = new javax.swing.JMenuItem();
+        bd = new javax.swing.JMenu();
+        bdVendas = new javax.swing.JMenuItem();
+        bdUsuario = new javax.swing.JMenuItem();
+        bdFornecedor = new javax.swing.JMenuItem();
+        bdStock = new javax.swing.JMenuItem();
+        ajd = new javax.swing.JMenu();
+        ajdSobre = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(653, 433));
+        setResizable(false);
 
-        jButton1.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jButton1.setText("DataBase");
+        javax.swing.GroupLayout telaPrincipalLayout = new javax.swing.GroupLayout(telaPrincipal);
+        telaPrincipal.setLayout(telaPrincipalLayout);
+        telaPrincipalLayout.setHorizontalGroup(
+            telaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 786, Short.MAX_VALUE)
+        );
+        telaPrincipalLayout.setVerticalGroup(
+            telaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
 
-        jButton2.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jButton2.setText("Stock");
+        jLabel1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jLabel1.setText("Bem-vindo");
 
-        jButton3.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jButton3.setText("History");
+        lblUsuario.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        lblUsuario.setText("Usuário");
 
-        jButton4.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jButton4.setText("Vendas");
+        lblData.setFont(new java.awt.Font("Verdana", 1, 10)); // NOI18N
+        lblData.setText("Aqui vem  a data");
+
+        lblIcon.setText("Aqui vem um Icon");
+
+        reg.setText("Registrar");
+
+        regCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
+        regCliente.setText("Cliente");
+        reg.add(regCliente);
+
+        regVenda.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_MASK));
+        regVenda.setText("Venda");
+        reg.add(regVenda);
+
+        regUsuario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
+        regUsuario.setText("Usuário");
+        reg.add(regUsuario);
+
+        regProduto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
+        regProduto.setText("Produto");
+        reg.add(regProduto);
+
+        barraMenu.add(reg);
+
+        opc.setText("Opções");
+
+        opcSair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_MASK));
+        opcSair.setText("Sair");
+        opcSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opcSairActionPerformed(evt);
+            }
+        });
+        opc.add(opcSair);
+
+        barraMenu.add(opc);
+
+        bd.setText("Base de Dados");
+
+        bdVendas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.SHIFT_MASK));
+        bdVendas.setText("Vendas");
+        bd.add(bdVendas);
+
+        bdUsuario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.SHIFT_MASK));
+        bdUsuario.setText("Usuários");
+        bd.add(bdUsuario);
+
+        bdFornecedor.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.SHIFT_MASK));
+        bdFornecedor.setText("Fornecedores");
+        bd.add(bdFornecedor);
+
+        bdStock.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.SHIFT_MASK));
+        bdStock.setText("Stock");
+        bd.add(bdStock);
+
+        barraMenu.add(bd);
+
+        ajd.setText("Ajuda");
+
+        ajdSobre.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, 0));
+        ajdSobre.setText("Sobre");
+        ajdSobre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ajdSobreActionPerformed(evt);
+            }
+        });
+        ajd.add(ajdSobre);
+
+        barraMenu.add(ajd);
+
+        setJMenuBar(barraMenu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(259, 259, 259)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(289, Short.MAX_VALUE))
+                .addComponent(telaPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(lblData, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(45, 45, 45))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(68, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(67, 67, 67))
+            .addComponent(telaPrincipal)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
+                .addComponent(lblData, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 323, Short.MAX_VALUE)
+                .addComponent(lblIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void ajdSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajdSobreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ajdSobreActionPerformed
+
+    private void opcSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcSairActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_opcSairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -113,9 +224,25 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JMenu ajd;
+    private javax.swing.JMenuItem ajdSobre;
+    private javax.swing.JMenuBar barraMenu;
+    private javax.swing.JMenu bd;
+    private javax.swing.JMenuItem bdFornecedor;
+    private javax.swing.JMenuItem bdStock;
+    private javax.swing.JMenuItem bdUsuario;
+    private javax.swing.JMenuItem bdVendas;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblData;
+    private javax.swing.JLabel lblIcon;
+    private javax.swing.JLabel lblUsuario;
+    private javax.swing.JMenu opc;
+    private javax.swing.JMenuItem opcSair;
+    private javax.swing.JMenu reg;
+    private javax.swing.JMenuItem regCliente;
+    private javax.swing.JMenuItem regProduto;
+    private javax.swing.JMenuItem regUsuario;
+    private javax.swing.JMenuItem regVenda;
+    private javax.swing.JDesktopPane telaPrincipal;
     // End of variables declaration//GEN-END:variables
 }
