@@ -5,7 +5,7 @@ public class Validar {
     
     public boolean Usuario (String nome, String senha){
         
-        return false;
+        return true;
     }
     
     public boolean Vendas (String produto, int quantidade){

@@ -30,3 +30,8 @@ subbotao stock = bdStock;
 #### Botao ajuda
 botao ajuda = ajd;
 subbotao sobre = ajdSobre;
+
+### Tela LogIn
+campo do usuario = txtUsuario;
+campo de senha = pWord;
+botao de entrar = btnEntrar
