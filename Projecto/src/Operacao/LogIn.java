@@ -31,87 +31,90 @@ public class LogIn extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         pWord = new javax.swing.JPasswordField();
         txtUsuario = new javax.swing.JTextField();
-        btnEntrar = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        btnEntrar1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema de Pastelaria");
         setBackground(new java.awt.Color(255, 204, 102));
+        setForeground(new java.awt.Color(255, 204, 102));
         setResizable(false);
 
-        jLabel1.setBackground(new java.awt.Color(255, 153, 51));
-        jLabel1.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jLabel1.setText("Usuário");
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel3.setBackground(new java.awt.Color(144, 180, 90));
+        jPanel3.setLayout(null);
 
         jLabel2.setBackground(new java.awt.Color(255, 153, 51));
         jLabel2.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jLabel2.setText("Senha");
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/icons/User2-1-3.png"))); // NOI18N
+        jPanel3.add(jLabel2);
+        jLabel2.setBounds(50, 60, 40, 70);
 
-        txtUsuario.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        pWord.setBackground(new java.awt.Color(144, 180, 90));
+        pWord.setFont(new java.awt.Font("OCR A Extended", 1, 16)); // NOI18N
+        pWord.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel3.add(pWord);
+        pWord.setBounds(90, 130, 241, 30);
+
+        txtUsuario.setBackground(new java.awt.Color(144, 180, 90));
+        txtUsuario.setFont(new java.awt.Font("OCR A Extended", 1, 16)); // NOI18N
         txtUsuario.setToolTipText("");
+        txtUsuario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel3.add(txtUsuario);
+        txtUsuario.setBounds(90, 70, 241, 30);
 
-        btnEntrar.setBackground(new java.awt.Color(255, 153, 51));
-        btnEntrar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        btnEntrar.setLabel("Entrar");
-        btnEntrar.addActionListener(new java.awt.event.ActionListener() {
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/icons/Key2.png"))); // NOI18N
+        jPanel3.add(jLabel4);
+        jLabel4.setBounds(40, 130, 70, 60);
+
+        btnEntrar1.setBackground(new java.awt.Color(144, 180, 90));
+        btnEntrar1.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        btnEntrar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        btnEntrar1.setLabel("Entrar");
+        btnEntrar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEntrarActionPerformed(evt);
+                btnEntrar1ActionPerformed(evt);
             }
         });
+        jPanel3.add(btnEntrar1);
+        btnEntrar1.setBounds(170, 180, 53, 23);
+
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 270));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1))
-                        .addGap(38, 38, 38)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(pWord)
-                            .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(128, 128, 128)
-                        .addComponent(btnEntrar)))
-                .addContainerGap(60, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pWord, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btnEntrar)
-                .addContainerGap(44, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
+    private void btnEntrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrar1ActionPerformed
         // TODO add your handling code here:
         String nome = txtUsuario.getText();
         String senha = pWord.getText();
-        //JOptionPane.showMessageDialog(null, senha);
         if (valida.Usuario(nome, senha)){
             new Menu().setVisible(true);
+            new Menu().lblUser.setText(nome);
             this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "Usuário ou senha inválida");
+            txtUsuario.setText("");
         }
-    }//GEN-LAST:event_btnEntrarActionPerformed
+    }//GEN-LAST:event_btnEntrar1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -149,9 +152,11 @@ public class LogIn extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnEntrar;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btnEntrar1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPasswordField pWord;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
