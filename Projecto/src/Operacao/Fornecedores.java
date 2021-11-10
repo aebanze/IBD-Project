@@ -9,12 +9,12 @@ package Operacao;
  *
  * @author Angel Banze
  */
-public class Stock extends javax.swing.JInternalFrame {
+public class Fornecedores extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form Stock
+     * Creates new form Fornecedores
      */
-    public Stock() {
+    public Fornecedores() {
         initComponents();
     }
 
@@ -27,15 +27,26 @@ public class Stock extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnAddFornecedor = new javax.swing.JButton();
+
+        btnAddFornecedor.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        btnAddFornecedor.setText("Adicionar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 665, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(554, Short.MAX_VALUE)
+                .addComponent(btnAddFornecedor)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 470, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(430, Short.MAX_VALUE)
+                .addComponent(btnAddFornecedor)
+                .addContainerGap())
         );
 
         pack();
@@ -43,5 +54,6 @@ public class Stock extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAddFornecedor;
     // End of variables declaration//GEN-END:variables
 }

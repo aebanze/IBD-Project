@@ -9,6 +9,7 @@ import java.awt.Component;
 import java.awt.event.MouseEvent;
 import java.text.DateFormat;
 import java.util.Date;
+import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
 
 /**
@@ -49,7 +50,7 @@ public class Menu extends javax.swing.JFrame {
         lblUser = new javax.swing.JLabel();
         lblUser1 = new javax.swing.JLabel();
         lblData = new javax.swing.JLabel();
-        desktop = new javax.swing.JPanel();
+        desktop = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -89,24 +90,44 @@ public class Menu extends javax.swing.JFrame {
         btnCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/icons/cliente.png"))); // NOI18N
         btnCliente.setText("Cliente");
         btnCliente.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClienteActionPerformed(evt);
+            }
+        });
 
         btnUsuario.setBackground(new java.awt.Color(144, 180, 90));
         btnUsuario.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         btnUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/icons/UserPrincipal.png"))); // NOI18N
         btnUsuario.setText("Usuário");
         btnUsuario.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUsuarioActionPerformed(evt);
+            }
+        });
 
         btnStock.setBackground(new java.awt.Color(144, 180, 90));
         btnStock.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         btnStock.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/icons/Stock.png"))); // NOI18N
         btnStock.setText("Stock");
         btnStock.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnStock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStockActionPerformed(evt);
+            }
+        });
 
         btnFornecedor.setBackground(new java.awt.Color(144, 180, 90));
         btnFornecedor.setFont(new java.awt.Font("Verdana", 1, 20)); // NOI18N
         btnFornecedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/icons/Fornecedor.png"))); // NOI18N
         btnFornecedor.setText("Fornecedor");
         btnFornecedor.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnFornecedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFornecedorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -182,13 +203,11 @@ public class Menu extends javax.swing.JFrame {
         jPanel3.add(jPanel1);
         jPanel1.setBounds(250, 0, 940, 110);
 
-        desktop.setBackground(new java.awt.Color(144, 180, 90));
-
         javax.swing.GroupLayout desktopLayout = new javax.swing.GroupLayout(desktop);
         desktop.setLayout(desktopLayout);
         desktopLayout.setHorizontalGroup(
             desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 970, Short.MAX_VALUE)
+            .addGap(0, 950, Short.MAX_VALUE)
         );
         desktopLayout.setVerticalGroup(
             desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,7 +215,7 @@ public class Menu extends javax.swing.JFrame {
         );
 
         jPanel3.add(desktop);
-        desktop.setBounds(250, 110, 970, 670);
+        desktop.setBounds(250, 110, 950, 670);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -214,6 +233,10 @@ public class Menu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void adicionarTela (JInternalFrame tela){
+        desktop.add(tela);
+        tela.setVisible(true);
+    }
     private void btnHomeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHomeMouseEntered
         // TODO add your handling code here:
     }//GEN-LAST:event_btnHomeMouseEntered
@@ -221,8 +244,42 @@ public class Menu extends javax.swing.JFrame {
     private void btnVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendaActionPerformed
         // TODO add your handling code here:
        Vendas telaVenda = new Vendas();
-       telaVenda.setVisible(true);
+       adicionarTela(telaVenda);
     }//GEN-LAST:event_btnVendaActionPerformed
+
+    private void btnFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFornecedorActionPerformed
+        // TODO add your handling code here:
+        Fornecedores novoFornecedor = new Fornecedores();
+        adicionarTela(novoFornecedor);
+    }//GEN-LAST:event_btnFornecedorActionPerformed
+
+    private void btnClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteActionPerformed
+        // TODO add your handling code here:
+        Clientes clientes = new Clientes();
+        adicionarTela(clientes);
+    }//GEN-LAST:event_btnClienteActionPerformed
+
+    private void btnStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStockActionPerformed
+        // TODO add your handling code here:
+        Stock stock = new Stock();
+        adicionarTela(stock);
+    }//GEN-LAST:event_btnStockActionPerformed
+
+    private void btnUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioActionPerformed
+        // TODO add your handling code here:
+        Usuario usuario = new Usuario();
+        adicionarTela(usuario);
+    }//GEN-LAST:event_btnUsuarioActionPerformed
+
+    public JDesktopPane getDesktop() {
+        return desktop;
+    }
+
+    public void setDesktop(JInternalFrame tela) {
+        desktop.add(tela);
+    }
+
+    
 
     /*private void formWindowActivated (java.awt.event.WindowEvent evt){
         Date data = new Date();
@@ -270,7 +327,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnStock;
     private javax.swing.JButton btnUsuario;
     private javax.swing.JButton btnVenda;
-    private javax.swing.JPanel desktop;
+    private javax.swing.JDesktopPane desktop;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
