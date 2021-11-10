@@ -65,7 +65,8 @@ public class Vendas extends javax.swing.JInternalFrame {
     private void btnNovaVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovaVendaActionPerformed
         // TODO add your handling code here:
         VendaNova venda = new VendaNova();
-        Menu menu = new Menu();
+        venda.show();
+        this.getDesktopPane().add(venda);
     }//GEN-LAST:event_btnNovaVendaActionPerformed
 
 

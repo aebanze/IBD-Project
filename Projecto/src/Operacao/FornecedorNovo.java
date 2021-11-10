@@ -33,25 +33,25 @@ public class FornecedorNovo extends javax.swing.JInternalFrame {
         jRadioButton1 = new javax.swing.JRadioButton();
         jLabel9 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
+        txtCell = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        txtApelido = new javax.swing.JTextField();
+        txtNomes = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        txtCidade = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
+        txtDistrito = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
-        jTextField12 = new javax.swing.JTextField();
-        jTextField13 = new javax.swing.JTextField();
-        jTextField14 = new javax.swing.JTextField();
+        txtBairro = new javax.swing.JTextField();
+        txtProduto1 = new javax.swing.JTextField();
+        txtProduto2 = new javax.swing.JTextField();
+        txtProduto4 = new javax.swing.JTextField();
+        txtProduto3 = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
@@ -78,6 +78,11 @@ public class FornecedorNovo extends javax.swing.JInternalFrame {
         jRadioButton2.setBackground(new java.awt.Color(144, 180, 90));
         jRadioButton2.setText("Fem");
         jRadioButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jRadioButton2);
         jRadioButton2.setBounds(250, 200, 41, 19);
 
@@ -85,6 +90,11 @@ public class FornecedorNovo extends javax.swing.JInternalFrame {
         jRadioButton1.setSelected(true);
         jRadioButton1.setText("Masc");
         jRadioButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jRadioButton1);
         jRadioButton1.setBounds(190, 200, 45, 19);
 
@@ -98,19 +108,19 @@ public class FornecedorNovo extends javax.swing.JInternalFrame {
         jPanel1.add(jLabel8);
         jLabel8.setBounds(90, 170, 47, 18);
 
-        jTextField5.setBackground(new java.awt.Color(144, 180, 90));
-        jTextField5.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jTextField5.setText("eg: xxx@hotmail.com ");
-        jTextField5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jPanel1.add(jTextField5);
-        jTextField5.setBounds(170, 170, 177, 20);
+        txtEmail.setBackground(new java.awt.Color(144, 180, 90));
+        txtEmail.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        txtEmail.setText("eg: xxx@hotmail.com ");
+        txtEmail.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel1.add(txtEmail);
+        txtEmail.setBounds(170, 170, 177, 20);
 
-        jTextField3.setBackground(new java.awt.Color(144, 180, 90));
-        jTextField3.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jTextField3.setText("+258 ");
-        jTextField3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jPanel1.add(jTextField3);
-        jTextField3.setBounds(210, 140, 131, 20);
+        txtCell.setBackground(new java.awt.Color(144, 180, 90));
+        txtCell.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        txtCell.setText("+258 ");
+        txtCell.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel1.add(txtCell);
+        txtCell.setBounds(210, 140, 131, 20);
 
         jLabel7.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel7.setText("Celular");
@@ -128,17 +138,17 @@ public class FornecedorNovo extends javax.swing.JInternalFrame {
         jPanel1.add(jLabel3);
         jLabel3.setBounds(440, 50, 160, 18);
 
-        jTextField1.setBackground(new java.awt.Color(144, 180, 90));
-        jTextField1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jTextField1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jPanel1.add(jTextField1);
-        jTextField1.setBounds(210, 80, 130, 20);
+        txtApelido.setBackground(new java.awt.Color(144, 180, 90));
+        txtApelido.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        txtApelido.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel1.add(txtApelido);
+        txtApelido.setBounds(210, 80, 130, 20);
 
-        jTextField2.setBackground(new java.awt.Color(144, 180, 90));
-        jTextField2.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jTextField2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jPanel1.add(jTextField2);
-        jTextField2.setBounds(210, 110, 130, 20);
+        txtNomes.setBackground(new java.awt.Color(144, 180, 90));
+        txtNomes.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        txtNomes.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel1.add(txtNomes);
+        txtNomes.setBounds(210, 110, 130, 20);
 
         jLabel4.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel4.setText("Apelido");
@@ -156,57 +166,57 @@ public class FornecedorNovo extends javax.swing.JInternalFrame {
         jPanel1.add(jLabel14);
         jLabel14.setBounds(90, 270, 53, 18);
 
-        jTextField8.setBackground(new java.awt.Color(144, 180, 90));
-        jTextField8.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jTextField8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jPanel1.add(jTextField8);
-        jTextField8.setBounds(210, 270, 130, 20);
+        txtCidade.setBackground(new java.awt.Color(144, 180, 90));
+        txtCidade.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        txtCidade.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel1.add(txtCidade);
+        txtCidade.setBounds(210, 270, 130, 20);
 
         jLabel15.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel15.setText("Distrito");
         jPanel1.add(jLabel15);
         jLabel15.setBounds(90, 300, 56, 18);
 
-        jTextField9.setBackground(new java.awt.Color(144, 180, 90));
-        jTextField9.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jTextField9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jPanel1.add(jTextField9);
-        jTextField9.setBounds(210, 300, 130, 20);
+        txtDistrito.setBackground(new java.awt.Color(144, 180, 90));
+        txtDistrito.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        txtDistrito.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel1.add(txtDistrito);
+        txtDistrito.setBounds(210, 300, 130, 20);
 
         jLabel16.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel16.setText("Bairro");
         jPanel1.add(jLabel16);
         jLabel16.setBounds(90, 330, 48, 18);
 
-        jTextField10.setBackground(new java.awt.Color(144, 180, 90));
-        jTextField10.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jTextField10.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jPanel1.add(jTextField10);
-        jTextField10.setBounds(210, 330, 130, 20);
+        txtBairro.setBackground(new java.awt.Color(144, 180, 90));
+        txtBairro.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        txtBairro.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel1.add(txtBairro);
+        txtBairro.setBounds(210, 330, 130, 20);
 
-        jTextField11.setBackground(new java.awt.Color(144, 180, 90));
-        jTextField11.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jTextField11.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jPanel1.add(jTextField11);
-        jTextField11.setBounds(460, 80, 130, 20);
+        txtProduto1.setBackground(new java.awt.Color(144, 180, 90));
+        txtProduto1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        txtProduto1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel1.add(txtProduto1);
+        txtProduto1.setBounds(460, 80, 130, 20);
 
-        jTextField12.setBackground(new java.awt.Color(144, 180, 90));
-        jTextField12.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jTextField12.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jPanel1.add(jTextField12);
-        jTextField12.setBounds(460, 110, 130, 20);
+        txtProduto2.setBackground(new java.awt.Color(144, 180, 90));
+        txtProduto2.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        txtProduto2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel1.add(txtProduto2);
+        txtProduto2.setBounds(460, 110, 130, 20);
 
-        jTextField13.setBackground(new java.awt.Color(144, 180, 90));
-        jTextField13.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jTextField13.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jPanel1.add(jTextField13);
-        jTextField13.setBounds(460, 170, 130, 20);
+        txtProduto4.setBackground(new java.awt.Color(144, 180, 90));
+        txtProduto4.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        txtProduto4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel1.add(txtProduto4);
+        txtProduto4.setBounds(460, 170, 130, 20);
 
-        jTextField14.setBackground(new java.awt.Color(144, 180, 90));
-        jTextField14.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jTextField14.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jPanel1.add(jTextField14);
-        jTextField14.setBounds(460, 140, 130, 20);
+        txtProduto3.setBackground(new java.awt.Color(144, 180, 90));
+        txtProduto3.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        txtProduto3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel1.add(txtProduto3);
+        txtProduto3.setBounds(460, 140, 130, 20);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -228,6 +238,20 @@ public class FornecedorNovo extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSubmit1ActionPerformed
 
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        // TODO add your handling code here:
+        if (jRadioButton2.isEnabled()){
+            jRadioButton2.setEnabled(false);
+        }
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        // TODO add your handling code here:
+        if (jRadioButton1.isEnabled()){
+            jRadioButton1.setEnabled(false);
+        }
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSubmit1;
@@ -244,16 +268,16 @@ public class FornecedorNovo extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField txtApelido;
+    private javax.swing.JTextField txtBairro;
+    private javax.swing.JTextField txtCell;
+    private javax.swing.JTextField txtCidade;
+    private javax.swing.JTextField txtDistrito;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtNomes;
+    private javax.swing.JTextField txtProduto1;
+    private javax.swing.JTextField txtProduto2;
+    private javax.swing.JTextField txtProduto3;
+    private javax.swing.JTextField txtProduto4;
     // End of variables declaration//GEN-END:variables
 }

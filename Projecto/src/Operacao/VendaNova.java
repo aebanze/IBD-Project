@@ -31,33 +31,33 @@ public class VendaNova extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jTextField1 = new javax.swing.JTextField();
+        comboCliente = new javax.swing.JComboBox<>();
+        comboOperador = new javax.swing.JComboBox<>();
+        txtNota = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        txtProduto1 = new javax.swing.JTextField();
+        txtProduto2 = new javax.swing.JTextField();
+        txtProduto3 = new javax.swing.JTextField();
+        txtProduto4 = new javax.swing.JTextField();
+        txtProduto5 = new javax.swing.JTextField();
+        btnConcluir = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
+        btnVoltar = new javax.swing.JButton();
+        btnImprimir = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
-        jTextField13 = new javax.swing.JTextField();
-        jTextField14 = new javax.swing.JTextField();
-        jTextField15 = new javax.swing.JTextField();
-        jTextField16 = new javax.swing.JTextField();
-        jTextField17 = new javax.swing.JTextField();
+        txtPreco1 = new javax.swing.JTextField();
+        txtPreco2 = new javax.swing.JTextField();
+        txtPreco3 = new javax.swing.JTextField();
+        txtPreco5 = new javax.swing.JTextField();
+        txtPreco4 = new javax.swing.JTextField();
+        txtPrecoTotal = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
+        txtQuantidade1 = new javax.swing.JTextField();
+        txtQuantidade2 = new javax.swing.JTextField();
+        txtQuantidade3 = new javax.swing.JTextField();
+        txtQuantidade4 = new javax.swing.JTextField();
+        txtQuantidade5 = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
@@ -88,35 +88,35 @@ public class VendaNova extends javax.swing.JInternalFrame {
         jPanel1.add(jLabel3);
         jLabel3.setBounds(30, 160, 36, 32);
 
-        jComboBox1.setBackground(new java.awt.Color(144, 180, 90));
-        jComboBox1.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        comboCliente.setBackground(new java.awt.Color(144, 180, 90));
+        comboCliente.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        comboCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboCliente.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        comboCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                comboClienteActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboBox1);
-        jComboBox1.setBounds(120, 80, 137, 26);
+        jPanel1.add(comboCliente);
+        comboCliente.setBounds(120, 80, 137, 26);
 
-        jComboBox2.setBackground(new java.awt.Color(144, 180, 90));
-        jComboBox2.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+        comboOperador.setBackground(new java.awt.Color(144, 180, 90));
+        comboOperador.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        comboOperador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboOperador.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        comboOperador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox2ActionPerformed(evt);
+                comboOperadorActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboBox2);
-        jComboBox2.setBounds(120, 120, 137, 26);
+        jPanel1.add(comboOperador);
+        comboOperador.setBounds(120, 120, 137, 26);
 
-        jTextField1.setBackground(new java.awt.Color(144, 180, 90));
-        jTextField1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jTextField1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jPanel1.add(jTextField1);
-        jTextField1.setBounds(120, 170, 137, 20);
+        txtNota.setBackground(new java.awt.Color(144, 180, 90));
+        txtNota.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        txtNota.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel1.add(txtNota);
+        txtNota.setBounds(120, 170, 137, 20);
 
         jLabel4.setBackground(new java.awt.Color(255, 153, 51));
         jLabel4.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -132,67 +132,67 @@ public class VendaNova extends javax.swing.JInternalFrame {
         jPanel1.add(jLabel5);
         jLabel5.setBounds(590, 70, 89, 32);
 
-        jTextField2.setBackground(new java.awt.Color(144, 180, 90));
-        jTextField2.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jTextField2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jPanel1.add(jTextField2);
-        jTextField2.setBounds(370, 120, 142, 20);
+        txtProduto1.setBackground(new java.awt.Color(144, 180, 90));
+        txtProduto1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        txtProduto1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel1.add(txtProduto1);
+        txtProduto1.setBounds(370, 120, 142, 20);
 
-        jTextField4.setBackground(new java.awt.Color(144, 180, 90));
-        jTextField4.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jTextField4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jPanel1.add(jTextField4);
-        jTextField4.setBounds(370, 150, 142, 20);
+        txtProduto2.setBackground(new java.awt.Color(144, 180, 90));
+        txtProduto2.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        txtProduto2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel1.add(txtProduto2);
+        txtProduto2.setBounds(370, 150, 142, 20);
 
-        jTextField5.setBackground(new java.awt.Color(144, 180, 90));
-        jTextField5.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jTextField5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jPanel1.add(jTextField5);
-        jTextField5.setBounds(370, 180, 142, 20);
+        txtProduto3.setBackground(new java.awt.Color(144, 180, 90));
+        txtProduto3.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        txtProduto3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel1.add(txtProduto3);
+        txtProduto3.setBounds(370, 180, 142, 20);
 
-        jTextField6.setBackground(new java.awt.Color(144, 180, 90));
-        jTextField6.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jTextField6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jPanel1.add(jTextField6);
-        jTextField6.setBounds(370, 210, 142, 20);
+        txtProduto4.setBackground(new java.awt.Color(144, 180, 90));
+        txtProduto4.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        txtProduto4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel1.add(txtProduto4);
+        txtProduto4.setBounds(370, 210, 142, 20);
 
-        jTextField7.setBackground(new java.awt.Color(144, 180, 90));
-        jTextField7.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jTextField7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jPanel1.add(jTextField7);
-        jTextField7.setBounds(370, 240, 142, 20);
+        txtProduto5.setBackground(new java.awt.Color(144, 180, 90));
+        txtProduto5.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        txtProduto5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel1.add(txtProduto5);
+        txtProduto5.setBounds(370, 240, 142, 20);
 
-        jButton1.setBackground(new java.awt.Color(144, 180, 90));
-        jButton1.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/icons/Actualizar.png"))); // NOI18N
-        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jPanel1.add(jButton1);
-        jButton1.setBounds(110, 410, 70, 70);
+        btnConcluir.setBackground(new java.awt.Color(144, 180, 90));
+        btnConcluir.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        btnConcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/icons/Actualizar.png"))); // NOI18N
+        btnConcluir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        btnConcluir.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jPanel1.add(btnConcluir);
+        btnConcluir.setBounds(110, 410, 70, 70);
 
-        jButton2.setBackground(new java.awt.Color(144, 180, 90));
-        jButton2.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/icons/X.png"))); // NOI18N
-        jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jButton2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jPanel1.add(jButton2);
-        jButton2.setBounds(320, 410, 70, 70);
+        btnCancelar.setBackground(new java.awt.Color(144, 180, 90));
+        btnCancelar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/icons/X.png"))); // NOI18N
+        btnCancelar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        btnCancelar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jPanel1.add(btnCancelar);
+        btnCancelar.setBounds(320, 410, 70, 70);
 
-        jButton3.setBackground(new java.awt.Color(144, 180, 90));
-        jButton3.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jButton3.setText("Voltar");
-        jButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jButton3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jPanel1.add(jButton3);
-        jButton3.setBounds(510, 430, 70, 44);
+        btnVoltar.setBackground(new java.awt.Color(144, 180, 90));
+        btnVoltar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        btnVoltar.setText("Voltar");
+        btnVoltar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        btnVoltar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jPanel1.add(btnVoltar);
+        btnVoltar.setBounds(510, 430, 70, 44);
 
-        jButton4.setBackground(new java.awt.Color(144, 180, 90));
-        jButton4.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/icons/Print.png"))); // NOI18N
-        jButton4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jButton4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jPanel1.add(jButton4);
-        jButton4.setBounds(700, 410, 70, 70);
+        btnImprimir.setBackground(new java.awt.Color(144, 180, 90));
+        btnImprimir.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/icons/Print.png"))); // NOI18N
+        btnImprimir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        btnImprimir.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jPanel1.add(btnImprimir);
+        btnImprimir.setBounds(700, 410, 70, 70);
 
         jLabel6.setBackground(new java.awt.Color(255, 153, 51));
         jLabel6.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -201,83 +201,83 @@ public class VendaNova extends javax.swing.JInternalFrame {
         jPanel1.add(jLabel6);
         jLabel6.setBounds(760, 70, 44, 32);
 
-        jTextField12.setBackground(new java.awt.Color(144, 180, 90));
-        jTextField12.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jTextField12.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jPanel1.add(jTextField12);
-        jTextField12.setBounds(760, 120, 53, 20);
+        txtPreco1.setBackground(new java.awt.Color(144, 180, 90));
+        txtPreco1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        txtPreco1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel1.add(txtPreco1);
+        txtPreco1.setBounds(760, 120, 53, 20);
 
-        jTextField13.setBackground(new java.awt.Color(144, 180, 90));
-        jTextField13.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jTextField13.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jPanel1.add(jTextField13);
-        jTextField13.setBounds(760, 150, 53, 20);
+        txtPreco2.setBackground(new java.awt.Color(144, 180, 90));
+        txtPreco2.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        txtPreco2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel1.add(txtPreco2);
+        txtPreco2.setBounds(760, 150, 53, 20);
 
-        jTextField14.setBackground(new java.awt.Color(144, 180, 90));
-        jTextField14.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jTextField14.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jPanel1.add(jTextField14);
-        jTextField14.setBounds(760, 180, 53, 20);
+        txtPreco3.setBackground(new java.awt.Color(144, 180, 90));
+        txtPreco3.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        txtPreco3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel1.add(txtPreco3);
+        txtPreco3.setBounds(760, 180, 53, 20);
 
-        jTextField15.setBackground(new java.awt.Color(144, 180, 90));
-        jTextField15.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jTextField15.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jPanel1.add(jTextField15);
-        jTextField15.setBounds(760, 240, 53, 20);
+        txtPreco5.setBackground(new java.awt.Color(144, 180, 90));
+        txtPreco5.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        txtPreco5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel1.add(txtPreco5);
+        txtPreco5.setBounds(760, 240, 53, 20);
 
-        jTextField16.setBackground(new java.awt.Color(144, 180, 90));
-        jTextField16.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jTextField16.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jPanel1.add(jTextField16);
-        jTextField16.setBounds(760, 210, 53, 20);
+        txtPreco4.setBackground(new java.awt.Color(144, 180, 90));
+        txtPreco4.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        txtPreco4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel1.add(txtPreco4);
+        txtPreco4.setBounds(760, 210, 53, 20);
 
-        jTextField17.setBackground(new java.awt.Color(144, 180, 90));
-        jTextField17.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jTextField17.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jPanel1.add(jTextField17);
-        jTextField17.setBounds(760, 290, 53, 20);
+        txtPrecoTotal.setBackground(new java.awt.Color(144, 180, 90));
+        txtPrecoTotal.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        txtPrecoTotal.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel1.add(txtPrecoTotal);
+        txtPrecoTotal.setBounds(760, 290, 53, 20);
 
         jLabel7.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel7.setText("Total");
         jPanel1.add(jLabel7);
         jLabel7.setBounds(650, 290, 39, 18);
 
-        jTextField3.setBackground(new java.awt.Color(144, 180, 90));
-        jTextField3.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jTextField3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jPanel1.add(jTextField3);
-        jTextField3.setBounds(570, 120, 142, 20);
+        txtQuantidade1.setBackground(new java.awt.Color(144, 180, 90));
+        txtQuantidade1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        txtQuantidade1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel1.add(txtQuantidade1);
+        txtQuantidade1.setBounds(570, 120, 142, 20);
 
-        jTextField8.setBackground(new java.awt.Color(144, 180, 90));
-        jTextField8.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jTextField8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jPanel1.add(jTextField8);
-        jTextField8.setBounds(570, 150, 142, 20);
+        txtQuantidade2.setBackground(new java.awt.Color(144, 180, 90));
+        txtQuantidade2.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        txtQuantidade2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel1.add(txtQuantidade2);
+        txtQuantidade2.setBounds(570, 150, 142, 20);
 
-        jTextField9.setBackground(new java.awt.Color(144, 180, 90));
-        jTextField9.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jTextField9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jPanel1.add(jTextField9);
-        jTextField9.setBounds(570, 180, 142, 20);
+        txtQuantidade3.setBackground(new java.awt.Color(144, 180, 90));
+        txtQuantidade3.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        txtQuantidade3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel1.add(txtQuantidade3);
+        txtQuantidade3.setBounds(570, 180, 142, 20);
 
-        jTextField10.setBackground(new java.awt.Color(144, 180, 90));
-        jTextField10.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jTextField10.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jPanel1.add(jTextField10);
-        jTextField10.setBounds(570, 210, 142, 20);
+        txtQuantidade4.setBackground(new java.awt.Color(144, 180, 90));
+        txtQuantidade4.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        txtQuantidade4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel1.add(txtQuantidade4);
+        txtQuantidade4.setBounds(570, 210, 142, 20);
 
-        jTextField11.setBackground(new java.awt.Color(144, 180, 90));
-        jTextField11.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jTextField11.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jPanel1.add(jTextField11);
-        jTextField11.setBounds(570, 240, 142, 20);
+        txtQuantidade5.setBackground(new java.awt.Color(144, 180, 90));
+        txtQuantidade5.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        txtQuantidade5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel1.add(txtQuantidade5);
+        txtQuantidade5.setBounds(570, 240, 142, 20);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1025, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 879, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -290,22 +290,22 @@ public class VendaNova extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void comboClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboClienteActionPerformed
 
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_comboClienteActionPerformed
 
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+    private void comboOperadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboOperadorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox2ActionPerformed
+    }//GEN-LAST:event_comboOperadorActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnConcluir;
+    private javax.swing.JButton btnImprimir;
+    private javax.swing.JButton btnVoltar;
+    private javax.swing.JComboBox<String> comboCliente;
+    private javax.swing.JComboBox<String> comboOperador;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -314,22 +314,22 @@ public class VendaNova extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField txtNota;
+    private javax.swing.JTextField txtPreco1;
+    private javax.swing.JTextField txtPreco2;
+    private javax.swing.JTextField txtPreco3;
+    private javax.swing.JTextField txtPreco4;
+    private javax.swing.JTextField txtPreco5;
+    private javax.swing.JTextField txtPrecoTotal;
+    private javax.swing.JTextField txtProduto1;
+    private javax.swing.JTextField txtProduto2;
+    private javax.swing.JTextField txtProduto3;
+    private javax.swing.JTextField txtProduto4;
+    private javax.swing.JTextField txtProduto5;
+    private javax.swing.JTextField txtQuantidade1;
+    private javax.swing.JTextField txtQuantidade2;
+    private javax.swing.JTextField txtQuantidade3;
+    private javax.swing.JTextField txtQuantidade4;
+    private javax.swing.JTextField txtQuantidade5;
     // End of variables declaration//GEN-END:variables
 }

@@ -28,14 +28,14 @@ public class ClienteNovo extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
+        txtApelido = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        txtNomes = new javax.swing.JTextField();
+        txtCell = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton1 = new javax.swing.JRadioButton();
         jLabel9 = new javax.swing.JLabel();
@@ -50,11 +50,11 @@ public class ClienteNovo extends javax.swing.JInternalFrame {
         jPanel1.setBackground(new java.awt.Color(144, 180, 90));
         jPanel1.setLayout(null);
 
-        jTextField1.setBackground(new java.awt.Color(144, 180, 90));
-        jTextField1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jTextField1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jPanel1.add(jTextField1);
-        jTextField1.setBounds(210, 80, 130, 20);
+        txtApelido.setBackground(new java.awt.Color(144, 180, 90));
+        txtApelido.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        txtApelido.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel1.add(txtApelido);
+        txtApelido.setBounds(210, 80, 130, 20);
 
         jLabel3.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel3.setText("Apelido");
@@ -66,18 +66,18 @@ public class ClienteNovo extends javax.swing.JInternalFrame {
         jPanel1.add(jLabel2);
         jLabel2.setBounds(90, 110, 109, 18);
 
-        jTextField2.setBackground(new java.awt.Color(144, 180, 90));
-        jTextField2.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jTextField2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jPanel1.add(jTextField2);
-        jTextField2.setBounds(210, 110, 130, 20);
+        txtNomes.setBackground(new java.awt.Color(144, 180, 90));
+        txtNomes.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        txtNomes.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel1.add(txtNomes);
+        txtNomes.setBounds(210, 110, 130, 20);
 
-        jTextField3.setBackground(new java.awt.Color(144, 180, 90));
-        jTextField3.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jTextField3.setText("+258 ");
-        jTextField3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jPanel1.add(jTextField3);
-        jTextField3.setBounds(210, 140, 131, 20);
+        txtCell.setBackground(new java.awt.Color(144, 180, 90));
+        txtCell.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        txtCell.setText("+258 ");
+        txtCell.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel1.add(txtCell);
+        txtCell.setBounds(210, 140, 131, 20);
 
         jLabel7.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel7.setText("Celular");
@@ -89,16 +89,21 @@ public class ClienteNovo extends javax.swing.JInternalFrame {
         jPanel1.add(jLabel8);
         jLabel8.setBounds(90, 170, 47, 18);
 
-        jTextField5.setBackground(new java.awt.Color(144, 180, 90));
-        jTextField5.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jTextField5.setText("eg: xxx@hotmail.com ");
-        jTextField5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jPanel1.add(jTextField5);
-        jTextField5.setBounds(170, 170, 177, 20);
+        txtEmail.setBackground(new java.awt.Color(144, 180, 90));
+        txtEmail.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        txtEmail.setText("eg: xxx@hotmail.com ");
+        txtEmail.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel1.add(txtEmail);
+        txtEmail.setBounds(170, 170, 177, 20);
 
         jRadioButton2.setBackground(new java.awt.Color(144, 180, 90));
         jRadioButton2.setText("Fem");
         jRadioButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jRadioButton2);
         jRadioButton2.setBounds(250, 200, 41, 19);
 
@@ -106,6 +111,11 @@ public class ClienteNovo extends javax.swing.JInternalFrame {
         jRadioButton1.setSelected(true);
         jRadioButton1.setText("Masc");
         jRadioButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jRadioButton1);
         jRadioButton1.setBounds(190, 200, 45, 19);
 
@@ -168,6 +178,20 @@ public class ClienteNovo extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSubmit1ActionPerformed
 
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        // TODO add your handling code here:
+        if (jRadioButton2.isEnabled()){
+            jRadioButton2.setEnabled(false);
+        }
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        // TODO add your handling code here:
+        if (jRadioButton1.isEnabled()){
+            jRadioButton1.setEnabled(false);
+        }
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSubmit;
@@ -180,9 +204,9 @@ public class ClienteNovo extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField txtApelido;
+    private javax.swing.JTextField txtCell;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtNomes;
     // End of variables declaration//GEN-END:variables
 }

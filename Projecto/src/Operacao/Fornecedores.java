@@ -36,6 +36,11 @@ public class Fornecedores extends javax.swing.JInternalFrame {
 
         btnAddFornecedor.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         btnAddFornecedor.setText("Adicionar");
+        btnAddFornecedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddFornecedorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -56,6 +61,13 @@ public class Fornecedores extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAddFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddFornecedorActionPerformed
+        // TODO add your handling code here:
+        FornecedorNovo fornecedor = new FornecedorNovo();
+        fornecedor.show();
+        this.getDesktopPane().add(fornecedor);
+    }//GEN-LAST:event_btnAddFornecedorActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
