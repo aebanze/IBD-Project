@@ -53,6 +53,11 @@ public class FornecedorNovo extends javax.swing.JInternalFrame {
         jTextField13 = new javax.swing.JTextField();
         jTextField14 = new javax.swing.JTextField();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
+
         jPanel1.setBackground(new java.awt.Color(144, 180, 90));
         jPanel1.setLayout(null);
 

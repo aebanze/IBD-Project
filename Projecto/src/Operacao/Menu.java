@@ -146,7 +146,7 @@ public class Menu extends javax.swing.JFrame {
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(246, Short.MAX_VALUE)
+                .addContainerGap(256, Short.MAX_VALUE)
                 .addComponent(btnHome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnVenda)
@@ -162,7 +162,7 @@ public class Menu extends javax.swing.JFrame {
         );
 
         jPanel3.add(jPanel4);
-        jPanel4.setBounds(0, 0, 250, 770);
+        jPanel4.setBounds(0, -80, 250, 780);
 
         jPanel1.setBackground(new java.awt.Color(153, 204, 255));
 
@@ -180,7 +180,7 @@ public class Menu extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(770, Short.MAX_VALUE)
+                .addContainerGap(830, Short.MAX_VALUE)
                 .addComponent(lblUser1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -201,42 +201,40 @@ public class Menu extends javax.swing.JFrame {
         );
 
         jPanel3.add(jPanel1);
-        jPanel1.setBounds(250, 0, 940, 110);
+        jPanel1.setBounds(250, 0, 1000, 110);
 
         javax.swing.GroupLayout desktopLayout = new javax.swing.GroupLayout(desktop);
         desktop.setLayout(desktopLayout);
         desktopLayout.setHorizontalGroup(
             desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 950, Short.MAX_VALUE)
+            .addGap(0, 1000, Short.MAX_VALUE)
         );
         desktopLayout.setVerticalGroup(
             desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 670, Short.MAX_VALUE)
+            .addGap(0, 590, Short.MAX_VALUE)
         );
 
         jPanel3.add(desktop);
-        desktop.setBounds(250, 110, 950, 670);
+        desktop.setBounds(250, 110, 1000, 590);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 1177, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 1243, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 744, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 692, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 1, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void adicionarTela (JInternalFrame tela){
-        desktop.add(tela);
-        tela.setVisible(true);
-    }
     private void btnHomeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHomeMouseEntered
         // TODO add your handling code here:
     }//GEN-LAST:event_btnHomeMouseEntered
@@ -244,40 +242,47 @@ public class Menu extends javax.swing.JFrame {
     private void btnVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendaActionPerformed
         // TODO add your handling code here:
        Vendas telaVenda = new Vendas();
-       adicionarTela(telaVenda);
+       desktop.add(telaVenda);
+       telaVenda.show();
     }//GEN-LAST:event_btnVendaActionPerformed
 
     private void btnFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFornecedorActionPerformed
         // TODO add your handling code here:
         Fornecedores novoFornecedor = new Fornecedores();
-        adicionarTela(novoFornecedor);
+        desktop.add(novoFornecedor);
+        novoFornecedor.show();
     }//GEN-LAST:event_btnFornecedorActionPerformed
 
     private void btnClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteActionPerformed
         // TODO add your handling code here:
         Clientes clientes = new Clientes();
-        adicionarTela(clientes);
+        desktop.add(clientes);
+        clientes.show();
     }//GEN-LAST:event_btnClienteActionPerformed
 
     private void btnStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStockActionPerformed
         // TODO add your handling code here:
         Stock stock = new Stock();
-        adicionarTela(stock);
+        desktop.add(stock);
+        stock.show();
     }//GEN-LAST:event_btnStockActionPerformed
 
     private void btnUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioActionPerformed
         // TODO add your handling code here:
         Usuario usuario = new Usuario();
-        adicionarTela(usuario);
+        desktop.add(usuario);
+        usuario.show();
     }//GEN-LAST:event_btnUsuarioActionPerformed
 
     public JDesktopPane getDesktop() {
         return desktop;
     }
 
-    public void setDesktop(JInternalFrame tela) {
-        desktop.add(tela);
+    public void setDesktop(JDesktopPane desktop) {
+        this.desktop = desktop;
     }
+
+  
 
     
 

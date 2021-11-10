@@ -29,6 +29,9 @@ public class Vendas extends javax.swing.JInternalFrame {
 
         btnNovaVenda = new javax.swing.JButton();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
         setResizable(true);
 
         btnNovaVenda.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
@@ -63,7 +66,6 @@ public class Vendas extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         VendaNova venda = new VendaNova();
         Menu menu = new Menu();
-        menu.adicionarTela(venda);
     }//GEN-LAST:event_btnNovaVendaActionPerformed
 
 

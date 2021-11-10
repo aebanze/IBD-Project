@@ -42,6 +42,11 @@ public class ClienteNovo extends javax.swing.JInternalFrame {
         btnSubmit = new javax.swing.JButton();
         btnSubmit1 = new javax.swing.JButton();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
+
         jPanel1.setBackground(new java.awt.Color(144, 180, 90));
         jPanel1.setLayout(null);
 

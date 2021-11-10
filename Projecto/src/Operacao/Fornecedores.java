@@ -29,6 +29,11 @@ public class Fornecedores extends javax.swing.JInternalFrame {
 
         btnAddFornecedor = new javax.swing.JButton();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
+
         btnAddFornecedor.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         btnAddFornecedor.setText("Adicionar");
 

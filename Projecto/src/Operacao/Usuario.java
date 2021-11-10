@@ -96,6 +96,11 @@ public class Usuario extends javax.swing.JInternalFrame {
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
+
         jPanel2.setBackground(new java.awt.Color(144, 180, 90));
         jPanel2.setLayout(null);
 
