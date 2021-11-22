@@ -112,7 +112,7 @@ public class LogIn extends javax.swing.JFrame {
             this.dispose();
         } else {
             JOptionPane.showMessageDialog(null, "Usuário ou senha inválida");
-            txtUsuario.setText("");
+            pWord.setText("");
         }
     }//GEN-LAST:event_btnEntrar1ActionPerformed
 
