@@ -1,6 +1,7 @@
 
 package Validacao;
 
+import Operacao.Menu;
 import java.util.ArrayList;
 
 public class Validar {
@@ -30,7 +31,7 @@ public class Validar {
         if (usuarios.contains(nome) && senhas.contains(senha)){
             indexNome = usuarios.indexOf(nome);
             indexSenha = senhas.indexOf(senha);
-            return (indexNome == indexSenha);
+            return (indexSenha == indexNome);
         }
         return false;
     }

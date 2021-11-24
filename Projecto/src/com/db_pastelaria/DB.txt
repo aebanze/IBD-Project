@@ -1,0 +1,118 @@
+create database db_pastelaria;
+
+use db_pastelaria;
+
+create table if not exists funcionario (
+func_cod integer auto_increment,
+func_nome varchar (15) not null,
+func_apelido varchar (20) not null,
+func_id_doc enum ('BI', 'DIRE', 'Passport') default 'BI' not null,
+func_nr_doc varchar (30) unique not null,
+func_email varchar (50) unique,
+func_nacionalidade varchar (25) default 'Moçambicana',
+func_es_civil enum ('solteiro/a', 'casado/a', 'divorciado/a', 'viuvo/a') default 'solteiro/a',
+func_sexo enum ('M', 'F') default 'M',
+func_bairro varchar (25) not null,
+func_quarteirao integer,
+func_casa_nr integer,
+primary key (func_cod)
+); 
+
+
+create table if not exists Telefone(
+func_cod integer not null,
+telefone integer not null,
+primary key (func_cod),
+constraint fk_cod_func foreign key (func_cod) references funcionario (func_cod)
+);
+
+
+create table if not exists Cliente (
+cli_cod int primary key auto_increment not null,
+cli_sexo enum ('M', 'F') not null default 'M',
+cli_nome varchar (15) not null,
+cli_apelido varchar (20) not null
+);
+
+
+
+create table if not exists Pedido (
+ped_cod int primary key not null auto_increment,
+func_cod int not null,
+cli_cod int not null,
+ped_estado varchar (25),
+ped_numero varchar (30),
+constraint fk_cod_func_ped foreign key (func_cod) references funcionario (func_cod),
+constraint fk_cod_cli foreign key (cli_cod) references cliente (cli_cod)
+);
+
+
+create table if not exists Contem (
+ped_cod int not null,
+prod_cod int not null,
+primary key (ped_cod, prod_cod),
+constraint fk_ped_cod foreign key (ped_cod) references pedido (ped_cod),
+constraint fk_prod_cod foreign key (prod_cod) references produto (prod_cod)
+);
+
+
+
+create table if not exists Produto (
+prod_cod int primary key auto_increment not null,
+cat_cod int not null,
+prod_marca varchar (24),
+prod_prazo date,
+constraint fk_cod_cat foreign key (cat_cod) references categoria (cat_cod)
+);
+
+
+
+create table if not exists Categoria(
+cat_cod int primary key auto_increment not null,
+cat_nome varchar (30) not null
+);
+
+
+
+create table if not exists Fornecedor(
+forn_cod int primary key not null auto_increment,
+forn_nome varchar (25) not null,
+forn_bairro varchar (30) not null,
+forn_avenida varchar (30) not null,
+forn_nuit integer not null,
+forn_tipo varchar (20),
+forn_email varchar (40) not null
+);
+
+
+
+create table if not exists Contacto (
+cod_forn int not null,
+cell int not null,
+primary key (cod_forn),
+constraint fk_cod_forn foreign key (cod_forn) references fornecedor (forn_cod)
+);
+
+
+create table if not exists Preco(
+prec_cod int primary key not null auto_increment,
+preco double
+);
+
+
+
+create table if not exists Fornece (
+cod_prod int not null,
+for_quant int not null,
+primary key (cod_prod),
+constraint fk_cod_prod foreign key (cod_prod) references produto (prod_cod)
+);
+
+
+
+create table if not exists Data_Fornecimento (
+cod_forn int not null,
+forn_data date,
+primary key (cod_forn),
+constraint fk_cod_forn_data foreign key (cod_forn) references fornecedor (forn_cod)
+);

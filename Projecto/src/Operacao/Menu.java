@@ -5,6 +5,7 @@
  */
 package Operacao;
 
+import static java.awt.Color.*;
 import java.awt.Component;
 import java.awt.event.MouseEvent;
 import java.text.DateFormat;
@@ -48,8 +49,8 @@ public class Menu extends javax.swing.JFrame {
         btnFornecedor = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         lblUser = new javax.swing.JLabel();
-        lblUser1 = new javax.swing.JLabel();
         lblData = new javax.swing.JLabel();
+        btnHelp = new javax.swing.JButton();
         desktop = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -71,6 +72,11 @@ public class Menu extends javax.swing.JFrame {
         btnHome.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnHomeMouseEntered(evt);
+            }
+        });
+        btnHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHomeActionPerformed(evt);
             }
         });
 
@@ -167,13 +173,12 @@ public class Menu extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(153, 204, 255));
 
         lblUser.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        lblUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/icons/Help.png"))); // NOI18N
-
-        lblUser1.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        lblUser1.setText("User");
 
         lblData.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         lblData.setText("Data");
+
+        btnHelp.setBackground(new java.awt.Color(0, 204, 204));
+        btnHelp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/icons/Help.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -181,20 +186,26 @@ public class Menu extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(830, Short.MAX_VALUE)
-                .addComponent(lblUser1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
+                .addComponent(lblUser, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblData)
-                    .addComponent(lblUser))
-                .addGap(21, 21, 21))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(lblData)
+                        .addGap(42, 42, 42))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnHelp, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblUser, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblUser1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblUser, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnHelp, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(8, 8, 8)))
                 .addGap(18, 18, 18)
                 .addComponent(lblData)
                 .addGap(24, 24, 24))
@@ -241,21 +252,21 @@ public class Menu extends javax.swing.JFrame {
 
     private void btnVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendaActionPerformed
         // TODO add your handling code here:
-       Vendas telaVenda = new Vendas();
+       Venda telaVenda = new Venda();
        desktop.add(telaVenda);
        telaVenda.show();
     }//GEN-LAST:event_btnVendaActionPerformed
 
     private void btnFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFornecedorActionPerformed
         // TODO add your handling code here:
-        Fornecedores novoFornecedor = new Fornecedores();
+        Fornecedor novoFornecedor = new Fornecedor();
         desktop.add(novoFornecedor);
         novoFornecedor.show();
     }//GEN-LAST:event_btnFornecedorActionPerformed
 
     private void btnClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteActionPerformed
         // TODO add your handling code here:
-        Clientes clientes = new Clientes();
+        Cliente clientes = new Cliente();
         desktop.add(clientes);
         clientes.show();
     }//GEN-LAST:event_btnClienteActionPerformed
@@ -273,6 +284,10 @@ public class Menu extends javax.swing.JFrame {
         desktop.add(usuario);
         usuario.show();
     }//GEN-LAST:event_btnUsuarioActionPerformed
+
+    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnHomeActionPerformed
 
     public JDesktopPane getDesktop() {
         return desktop;
@@ -328,6 +343,7 @@ public class Menu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCliente;
     private javax.swing.JButton btnFornecedor;
+    private javax.swing.JButton btnHelp;
     private javax.swing.JButton btnHome;
     private javax.swing.JButton btnStock;
     private javax.swing.JButton btnUsuario;
@@ -339,6 +355,5 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JLabel lblData;
     public javax.swing.JLabel lblUser;
-    public javax.swing.JLabel lblUser1;
     // End of variables declaration//GEN-END:variables
 }

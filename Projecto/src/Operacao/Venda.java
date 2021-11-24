@@ -9,12 +9,12 @@ package Operacao;
  *
  * @author Angel Banze
  */
-public class VendaNova extends javax.swing.JInternalFrame {
+public class Venda extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form VendaNova
      */
-    public VendaNova() {
+    public Venda() {
         initComponents();
     }
 
@@ -42,8 +42,8 @@ public class VendaNova extends javax.swing.JInternalFrame {
         txtProduto4 = new javax.swing.JTextField();
         txtProduto5 = new javax.swing.JTextField();
         btnConcluir = new javax.swing.JButton();
-        btnCancelar = new javax.swing.JButton();
-        btnVoltar = new javax.swing.JButton();
+        btnApagar = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
         btnImprimir = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         txtPreco1 = new javax.swing.JTextField();
@@ -58,6 +58,9 @@ public class VendaNova extends javax.swing.JInternalFrame {
         txtQuantidade3 = new javax.swing.JTextField();
         txtQuantidade4 = new javax.swing.JTextField();
         txtQuantidade5 = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        txtCod = new javax.swing.JTextField();
+        btnPesquisa = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -168,23 +171,23 @@ public class VendaNova extends javax.swing.JInternalFrame {
         btnConcluir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         btnConcluir.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jPanel1.add(btnConcluir);
-        btnConcluir.setBounds(110, 410, 70, 70);
+        btnConcluir.setBounds(110, 410, 60, 60);
 
-        btnCancelar.setBackground(new java.awt.Color(144, 180, 90));
-        btnCancelar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/icons/X.png"))); // NOI18N
-        btnCancelar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        btnCancelar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jPanel1.add(btnCancelar);
-        btnCancelar.setBounds(320, 410, 70, 70);
+        btnApagar.setBackground(new java.awt.Color(144, 180, 90));
+        btnApagar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        btnApagar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/icons/X.png"))); // NOI18N
+        btnApagar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        btnApagar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jPanel1.add(btnApagar);
+        btnApagar.setBounds(320, 410, 60, 60);
 
-        btnVoltar.setBackground(new java.awt.Color(144, 180, 90));
-        btnVoltar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        btnVoltar.setText("Voltar");
-        btnVoltar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        btnVoltar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jPanel1.add(btnVoltar);
-        btnVoltar.setBounds(510, 430, 70, 44);
+        btnUpdate.setBackground(new java.awt.Color(144, 180, 90));
+        btnUpdate.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        btnUpdate.setText("Actualizar");
+        btnUpdate.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        btnUpdate.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jPanel1.add(btnUpdate);
+        btnUpdate.setBounds(510, 430, 90, 44);
 
         btnImprimir.setBackground(new java.awt.Color(144, 180, 90));
         btnImprimir.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -192,7 +195,7 @@ public class VendaNova extends javax.swing.JInternalFrame {
         btnImprimir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         btnImprimir.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jPanel1.add(btnImprimir);
-        btnImprimir.setBounds(700, 410, 70, 70);
+        btnImprimir.setBounds(700, 410, 63, 70);
 
         jLabel6.setBackground(new java.awt.Color(255, 153, 51));
         jLabel6.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -272,6 +275,26 @@ public class VendaNova extends javax.swing.JInternalFrame {
         jPanel1.add(txtQuantidade5);
         txtQuantidade5.setBounds(570, 240, 142, 20);
 
+        jLabel8.setBackground(new java.awt.Color(255, 153, 51));
+        jLabel8.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        jLabel8.setText("Codigo");
+        jLabel8.setToolTipText("");
+        jPanel1.add(jLabel8);
+        jLabel8.setBounds(30, 30, 70, 32);
+
+        txtCod.setBackground(new java.awt.Color(144, 180, 90));
+        txtCod.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        txtCod.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel1.add(txtCod);
+        txtCod.setBounds(120, 40, 137, 20);
+
+        btnPesquisa.setBackground(new java.awt.Color(144, 180, 90));
+        btnPesquisa.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        btnPesquisa.setText("Pesquisar");
+        btnPesquisa.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel1.add(btnPesquisa);
+        btnPesquisa.setBounds(300, 40, 110, 20);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -300,10 +323,11 @@ public class VendaNova extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnApagar;
     private javax.swing.JButton btnConcluir;
     private javax.swing.JButton btnImprimir;
-    private javax.swing.JButton btnVoltar;
+    private javax.swing.JButton btnPesquisa;
+    private javax.swing.JButton btnUpdate;
     private javax.swing.JComboBox<String> comboCliente;
     private javax.swing.JComboBox<String> comboOperador;
     private javax.swing.JLabel jLabel1;
@@ -313,7 +337,9 @@ public class VendaNova extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField txtCod;
     private javax.swing.JTextField txtNota;
     private javax.swing.JTextField txtPreco1;
     private javax.swing.JTextField txtPreco2;

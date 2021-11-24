@@ -7,11 +7,16 @@ package Operacao;
 
 import javax.swing.JOptionPane;
 import Validacao.Validar;
+import java.sql.*;
+import Validacao.Conexao;
 /**
  *
  * @author Angel Banze
  */
 public class LogIn extends javax.swing.JFrame {
+Connection conexao = null;
+PreparedStatement pst = null;
+ResultSet rs = null;
 
     Validar valida;
     /**
@@ -20,6 +25,13 @@ public class LogIn extends javax.swing.JFrame {
     public LogIn() {
         initComponents();
         valida= new Validar();
+        conexao = Conexao.Conector();
+        //System.out.println(conexao
+        if (conexao != null){
+            lblStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("caminho...")));
+        } else{
+            
+        }
     }
 
     /**
@@ -38,6 +50,7 @@ public class LogIn extends javax.swing.JFrame {
         txtUsuario = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         btnEntrar1 = new javax.swing.JButton();
+        lblStatus = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema de Pastelaria");
@@ -54,24 +67,24 @@ public class LogIn extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/icons/User2-1-3.png"))); // NOI18N
         jPanel3.add(jLabel2);
-        jLabel2.setBounds(50, 60, 40, 70);
+        jLabel2.setBounds(100, 30, 40, 70);
 
         pWord.setBackground(new java.awt.Color(144, 180, 90));
         pWord.setFont(new java.awt.Font("OCR A Extended", 1, 16)); // NOI18N
         pWord.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jPanel3.add(pWord);
-        pWord.setBounds(90, 130, 241, 30);
+        pWord.setBounds(140, 100, 241, 30);
 
         txtUsuario.setBackground(new java.awt.Color(144, 180, 90));
         txtUsuario.setFont(new java.awt.Font("OCR A Extended", 1, 16)); // NOI18N
         txtUsuario.setToolTipText("");
         txtUsuario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jPanel3.add(txtUsuario);
-        txtUsuario.setBounds(90, 70, 241, 30);
+        txtUsuario.setBounds(140, 40, 241, 30);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/icons/Key2.png"))); // NOI18N
         jPanel3.add(jLabel4);
-        jLabel4.setBounds(40, 130, 70, 60);
+        jLabel4.setBounds(90, 100, 70, 60);
 
         btnEntrar1.setBackground(new java.awt.Color(144, 180, 90));
         btnEntrar1.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -83,7 +96,11 @@ public class LogIn extends javax.swing.JFrame {
             }
         });
         jPanel3.add(btnEntrar1);
-        btnEntrar1.setBounds(170, 180, 53, 23);
+        btnEntrar1.setBounds(220, 150, 53, 23);
+
+        lblStatus.setText("Status");
+        jPanel3.add(lblStatus);
+        lblStatus.setBounds(50, 220, 31, 14);
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 270));
 
@@ -108,7 +125,7 @@ public class LogIn extends javax.swing.JFrame {
         String senha = pWord.getText();
         if (valida.Usuario(nome, senha)){
             new Menu().setVisible(true);
-            new Menu().lblUser.setText(nome);
+            new Menu().lblUser.setText(txtUsuario.getText());
             this.dispose();
         } else {
             JOptionPane.showMessageDialog(null, "Usuário ou senha inválida");
@@ -157,6 +174,7 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel lblStatus;
     private javax.swing.JPasswordField pWord;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables

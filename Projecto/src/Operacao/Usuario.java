@@ -56,7 +56,6 @@ public class Usuario extends javax.swing.JInternalFrame {
         comboDocumento = new javax.swing.JComboBox<>();
         combEstado = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -95,6 +94,9 @@ public class Usuario extends javax.swing.JInternalFrame {
         jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        txtCod = new javax.swing.JTextField();
+        btnPesquisa = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -107,7 +109,6 @@ public class Usuario extends javax.swing.JInternalFrame {
         btnSubmit.setBackground(new java.awt.Color(144, 180, 90));
         btnSubmit.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         btnSubmit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/icons/Submit.png"))); // NOI18N
-        btnSubmit.setText("Submeter");
         btnSubmit.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         btnSubmit.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
@@ -116,92 +117,92 @@ public class Usuario extends javax.swing.JInternalFrame {
             }
         });
         jPanel2.add(btnSubmit);
-        btnSubmit.setBounds(550, 450, 190, 60);
+        btnSubmit.setBounds(220, 440, 70, 60);
 
         txtApelido.setBackground(new java.awt.Color(144, 180, 90));
         txtApelido.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         txtApelido.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jPanel2.add(txtApelido);
-        txtApelido.setBounds(210, 260, 130, 20);
+        txtApelido.setBounds(180, 110, 130, 20);
 
         jLabel3.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel3.setText("Apelido");
         jPanel2.add(jLabel3);
-        jLabel3.setBounds(90, 260, 58, 18);
+        jLabel3.setBounds(60, 110, 58, 18);
 
         jLabel2.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel2.setText("Outros nomes");
         jPanel2.add(jLabel2);
-        jLabel2.setBounds(90, 290, 109, 18);
+        jLabel2.setBounds(60, 140, 109, 18);
 
         jLabel10.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel10.setText("Senha LogIn");
         jPanel2.add(jLabel10);
-        jLabel10.setBounds(90, 320, 100, 18);
+        jLabel10.setBounds(60, 170, 100, 18);
 
         txtSenha.setBackground(new java.awt.Color(144, 180, 90));
         txtSenha.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         txtSenha.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jPanel2.add(txtSenha);
-        txtSenha.setBounds(210, 320, 130, 20);
+        txtSenha.setBounds(180, 170, 130, 20);
 
         txtNomes.setBackground(new java.awt.Color(144, 180, 90));
         txtNomes.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         txtNomes.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jPanel2.add(txtNomes);
-        txtNomes.setBounds(210, 290, 130, 20);
+        txtNomes.setBounds(180, 140, 130, 20);
 
         jLabel7.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel7.setText("Celular 1");
         jPanel2.add(jLabel7);
-        jLabel7.setBounds(90, 360, 69, 18);
+        jLabel7.setBounds(60, 210, 69, 18);
 
         txtCell1.setBackground(new java.awt.Color(144, 180, 90));
         txtCell1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         txtCell1.setText("+258 ");
         txtCell1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jPanel2.add(txtCell1);
-        txtCell1.setBounds(210, 360, 131, 20);
+        txtCell1.setBounds(180, 210, 131, 20);
 
         txtCell2.setBackground(new java.awt.Color(144, 180, 90));
         txtCell2.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         txtCell2.setText("+258 ");
         txtCell2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jPanel2.add(txtCell2);
-        txtCell2.setBounds(210, 390, 131, 20);
+        txtCell2.setBounds(180, 240, 131, 20);
 
         jLabel6.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel6.setText("Celular 2");
         jPanel2.add(jLabel6);
-        jLabel6.setBounds(90, 390, 69, 18);
+        jLabel6.setBounds(60, 240, 69, 18);
 
         jLabel8.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel8.setText("e-mail");
         jPanel2.add(jLabel8);
-        jLabel8.setBounds(90, 430, 47, 18);
+        jLabel8.setBounds(60, 280, 47, 18);
 
         txtEmail.setBackground(new java.awt.Color(144, 180, 90));
         txtEmail.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         txtEmail.setText("eg: xxx@hotmail.com ");
         txtEmail.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jPanel2.add(txtEmail);
-        txtEmail.setBounds(170, 430, 177, 20);
+        txtEmail.setBounds(140, 280, 177, 20);
 
         jLabel9.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel9.setText("Genero");
         jPanel2.add(jLabel9);
-        jLabel9.setBounds(90, 450, 56, 18);
+        jLabel9.setBounds(60, 300, 56, 18);
 
         jLabel17.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel17.setText("Nacionalidade");
         jPanel2.add(jLabel17);
-        jLabel17.setBounds(90, 490, 107, 18);
+        jLabel17.setBounds(60, 340, 107, 18);
 
         txtNacionalidade.setBackground(new java.awt.Color(144, 180, 90));
         txtNacionalidade.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         txtNacionalidade.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jPanel2.add(txtNacionalidade);
-        txtNacionalidade.setBounds(210, 490, 130, 20);
+        txtNacionalidade.setBounds(180, 340, 130, 20);
 
         jRadioButton1.setBackground(new java.awt.Color(144, 180, 90));
         jRadioButton1.setSelected(true);
@@ -213,7 +214,7 @@ public class Usuario extends javax.swing.JInternalFrame {
             }
         });
         jPanel2.add(jRadioButton1);
-        jRadioButton1.setBounds(200, 450, 45, 19);
+        jRadioButton1.setBounds(170, 300, 45, 19);
 
         jRadioButton2.setBackground(new java.awt.Color(144, 180, 90));
         jRadioButton2.setText("Fem");
@@ -224,46 +225,46 @@ public class Usuario extends javax.swing.JInternalFrame {
             }
         });
         jPanel2.add(jRadioButton2);
-        jRadioButton2.setBounds(260, 450, 41, 19);
+        jRadioButton2.setBounds(230, 300, 41, 19);
 
         jLabel14.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel14.setText("Cidade");
         jPanel2.add(jLabel14);
-        jLabel14.setBounds(420, 190, 53, 18);
+        jLabel14.setBounds(470, 320, 53, 18);
 
         txtCidade.setBackground(new java.awt.Color(144, 180, 90));
         txtCidade.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         txtCidade.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jPanel2.add(txtCidade);
-        txtCidade.setBounds(380, 220, 130, 20);
+        txtCidade.setBounds(430, 350, 130, 20);
 
         jLabel15.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel15.setText("Distrito");
         jPanel2.add(jLabel15);
-        jLabel15.setBounds(570, 190, 56, 18);
+        jLabel15.setBounds(620, 320, 56, 18);
 
         txtDistrito.setBackground(new java.awt.Color(144, 180, 90));
         txtDistrito.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         txtDistrito.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jPanel2.add(txtDistrito);
-        txtDistrito.setBounds(530, 220, 130, 20);
+        txtDistrito.setBounds(580, 350, 130, 20);
 
         jLabel16.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel16.setText("Bairro");
         jPanel2.add(jLabel16);
-        jLabel16.setBounds(710, 190, 48, 18);
+        jLabel16.setBounds(760, 320, 48, 18);
 
         txtBairro.setBackground(new java.awt.Color(144, 180, 90));
         txtBairro.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         txtBairro.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jPanel2.add(txtBairro);
-        txtBairro.setBounds(670, 220, 130, 20);
+        txtBairro.setBounds(720, 350, 130, 20);
 
         txtNrDocumento.setBackground(new java.awt.Color(144, 180, 90));
         txtNrDocumento.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         txtNrDocumento.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jPanel2.add(txtNrDocumento);
-        txtNrDocumento.setBounds(580, 120, 188, 20);
+        txtNrDocumento.setBounds(630, 250, 188, 20);
 
         comboDocumento.setBackground(new java.awt.Color(144, 180, 90));
         comboDocumento.setEditable(true);
@@ -276,7 +277,7 @@ public class Usuario extends javax.swing.JInternalFrame {
             }
         });
         jPanel2.add(comboDocumento);
-        comboDocumento.setBounds(580, 80, 124, 24);
+        comboDocumento.setBounds(630, 210, 124, 24);
 
         combEstado.setBackground(new java.awt.Color(144, 180, 90));
         combEstado.setEditable(true);
@@ -289,39 +290,34 @@ public class Usuario extends javax.swing.JInternalFrame {
             }
         });
         jPanel2.add(combEstado);
-        combEstado.setBounds(580, 50, 124, 24);
+        combEstado.setBounds(630, 180, 124, 24);
 
         jLabel5.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel5.setText("Estado Civil");
         jPanel2.add(jLabel5);
-        jLabel5.setBounds(410, 50, 90, 18);
-
-        jLabel4.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jLabel4.setText("Aqui vem uma foto");
-        jPanel2.add(jLabel4);
-        jLabel4.setBounds(90, 70, 147, 18);
+        jLabel5.setBounds(460, 180, 90, 18);
 
         jLabel12.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel12.setText("Tipo de Documento");
         jPanel2.add(jLabel12);
-        jLabel12.setBounds(410, 90, 151, 18);
+        jLabel12.setBounds(460, 220, 151, 18);
 
         jLabel11.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel11.setText("Nº do Documento");
         jPanel2.add(jLabel11);
-        jLabel11.setBounds(410, 120, 150, 18);
+        jLabel11.setBounds(460, 250, 150, 18);
 
         jLabel13.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(153, 51, 0));
         jLabel13.setText("Morada");
         jPanel2.add(jLabel13);
-        jLabel13.setBounds(410, 160, 58, 18);
+        jLabel13.setBounds(460, 290, 58, 18);
 
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(153, 51, 0));
         jLabel1.setText("Dados");
         jPanel2.add(jLabel1);
-        jLabel1.setBounds(90, 220, 48, 18);
+        jLabel1.setBounds(60, 30, 48, 18);
 
         jPanel3.setBackground(new java.awt.Color(144, 180, 90));
         jPanel3.setLayout(null);
@@ -538,6 +534,24 @@ public class Usuario extends javax.swing.JInternalFrame {
         jPanel2.add(jPanel3);
         jPanel3.setBounds(0, 0, 0, 0);
 
+        jLabel4.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        jLabel4.setText("Codigo");
+        jPanel2.add(jLabel4);
+        jLabel4.setBounds(60, 80, 55, 18);
+
+        txtCod.setBackground(new java.awt.Color(144, 180, 90));
+        txtCod.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        txtCod.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel2.add(txtCod);
+        txtCod.setBounds(180, 80, 130, 20);
+
+        btnPesquisa.setBackground(new java.awt.Color(144, 180, 90));
+        btnPesquisa.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        btnPesquisa.setText("Pesquisar");
+        btnPesquisa.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel2.add(btnPesquisa);
+        btnPesquisa.setBounds(360, 80, 110, 20);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -594,6 +608,7 @@ public class Usuario extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnPesquisa;
     private javax.swing.JButton btnSubmit;
     private javax.swing.JButton btnSubmit1;
     private javax.swing.JComboBox<String> combEstado;
@@ -656,6 +671,7 @@ public class Usuario extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtCell1;
     private javax.swing.JTextField txtCell2;
     private javax.swing.JTextField txtCidade;
+    private javax.swing.JTextField txtCod;
     private javax.swing.JTextField txtDistrito;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtNacionalidade;

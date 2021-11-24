@@ -9,12 +9,12 @@ package Operacao;
  *
  * @author Angel Banze
  */
-public class ClienteNovo extends javax.swing.JInternalFrame {
+public class Cliente extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form ClienteNovo
      */
-    public ClienteNovo() {
+    public Cliente() {
         initComponents();
     }
 
@@ -41,6 +41,12 @@ public class ClienteNovo extends javax.swing.JInternalFrame {
         jLabel9 = new javax.swing.JLabel();
         btnSubmit = new javax.swing.JButton();
         btnSubmit1 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        txtCod = new javax.swing.JTextField();
+        btnPesquisa = new javax.swing.JButton();
+        btnApagar = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
+        btnUpdate1 = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -54,47 +60,47 @@ public class ClienteNovo extends javax.swing.JInternalFrame {
         txtApelido.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         txtApelido.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jPanel1.add(txtApelido);
-        txtApelido.setBounds(210, 80, 130, 20);
+        txtApelido.setBounds(210, 100, 130, 20);
 
         jLabel3.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel3.setText("Apelido");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(90, 80, 58, 18);
+        jLabel3.setBounds(90, 100, 58, 18);
 
         jLabel2.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel2.setText("Outros nomes");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(90, 110, 109, 18);
+        jLabel2.setBounds(90, 130, 109, 18);
 
         txtNomes.setBackground(new java.awt.Color(144, 180, 90));
         txtNomes.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         txtNomes.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jPanel1.add(txtNomes);
-        txtNomes.setBounds(210, 110, 130, 20);
+        txtNomes.setBounds(210, 130, 130, 20);
 
         txtCell.setBackground(new java.awt.Color(144, 180, 90));
         txtCell.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         txtCell.setText("+258 ");
         txtCell.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jPanel1.add(txtCell);
-        txtCell.setBounds(210, 140, 131, 20);
+        txtCell.setBounds(210, 160, 131, 20);
 
         jLabel7.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel7.setText("Celular");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(90, 140, 54, 18);
+        jLabel7.setBounds(90, 160, 54, 18);
 
         jLabel8.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel8.setText("e-mail");
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(90, 170, 47, 18);
+        jLabel8.setBounds(90, 190, 47, 18);
 
         txtEmail.setBackground(new java.awt.Color(144, 180, 90));
         txtEmail.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         txtEmail.setText("eg: xxx@hotmail.com ");
         txtEmail.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jPanel1.add(txtEmail);
-        txtEmail.setBounds(170, 170, 177, 20);
+        txtEmail.setBounds(170, 190, 177, 20);
 
         jRadioButton2.setBackground(new java.awt.Color(144, 180, 90));
         jRadioButton2.setText("Fem");
@@ -105,7 +111,7 @@ public class ClienteNovo extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(jRadioButton2);
-        jRadioButton2.setBounds(250, 200, 41, 19);
+        jRadioButton2.setBounds(250, 220, 41, 19);
 
         jRadioButton1.setBackground(new java.awt.Color(144, 180, 90));
         jRadioButton1.setSelected(true);
@@ -117,12 +123,12 @@ public class ClienteNovo extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(jRadioButton1);
-        jRadioButton1.setBounds(190, 200, 45, 19);
+        jRadioButton1.setBounds(190, 220, 45, 19);
 
         jLabel9.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel9.setText("Genero");
         jPanel1.add(jLabel9);
-        jLabel9.setBounds(90, 200, 56, 18);
+        jLabel9.setBounds(90, 220, 56, 18);
 
         btnSubmit.setBackground(new java.awt.Color(144, 180, 90));
         btnSubmit.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
@@ -141,7 +147,6 @@ public class ClienteNovo extends javax.swing.JInternalFrame {
         btnSubmit1.setBackground(new java.awt.Color(144, 180, 90));
         btnSubmit1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         btnSubmit1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/icons/Submit.png"))); // NOI18N
-        btnSubmit1.setText("Submeter");
         btnSubmit1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         btnSubmit1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnSubmit1.addActionListener(new java.awt.event.ActionListener() {
@@ -150,15 +155,55 @@ public class ClienteNovo extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(btnSubmit1);
-        btnSubmit1.setBounds(160, 260, 170, 60);
+        btnSubmit1.setBounds(160, 260, 60, 60);
+
+        jLabel4.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        jLabel4.setText("Codigo");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(90, 70, 55, 18);
+
+        txtCod.setBackground(new java.awt.Color(144, 180, 90));
+        txtCod.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        txtCod.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel1.add(txtCod);
+        txtCod.setBounds(210, 70, 130, 20);
+
+        btnPesquisa.setBackground(new java.awt.Color(144, 180, 90));
+        btnPesquisa.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        btnPesquisa.setText("Pesquisar");
+        btnPesquisa.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel1.add(btnPesquisa);
+        btnPesquisa.setBounds(410, 70, 110, 20);
+
+        btnApagar.setBackground(new java.awt.Color(144, 180, 90));
+        btnApagar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        btnApagar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/icons/X.png"))); // NOI18N
+        btnApagar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        btnApagar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jPanel1.add(btnApagar);
+        btnApagar.setBounds(240, 261, 60, 59);
+
+        btnUpdate.setBackground(new java.awt.Color(144, 180, 90));
+        btnUpdate.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        btnUpdate.setText("Actualizar");
+        btnUpdate.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        btnUpdate.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jPanel1.add(btnUpdate);
+        btnUpdate.setBounds(510, 430, 90, 44);
+
+        btnUpdate1.setBackground(new java.awt.Color(144, 180, 90));
+        btnUpdate1.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        btnUpdate1.setText("Actualizar");
+        btnUpdate1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        btnUpdate1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jPanel1.add(btnUpdate1);
+        btnUpdate1.setBounds(320, 260, 90, 60);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 568, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -194,10 +239,15 @@ public class ClienteNovo extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnApagar;
+    private javax.swing.JButton btnPesquisa;
     private javax.swing.JButton btnSubmit;
     private javax.swing.JButton btnSubmit1;
+    private javax.swing.JButton btnUpdate;
+    private javax.swing.JButton btnUpdate1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -206,6 +256,7 @@ public class ClienteNovo extends javax.swing.JInternalFrame {
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JTextField txtApelido;
     private javax.swing.JTextField txtCell;
+    private javax.swing.JTextField txtCod;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtNomes;
     // End of variables declaration//GEN-END:variables
