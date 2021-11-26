@@ -108,7 +108,7 @@ public class Usuario extends javax.swing.JInternalFrame {
 
         btnSubmit.setBackground(new java.awt.Color(144, 180, 90));
         btnSubmit.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        btnSubmit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/icons/Submit.png"))); // NOI18N
+        btnSubmit.setText("Adicionar");
         btnSubmit.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         btnSubmit.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
@@ -117,7 +117,7 @@ public class Usuario extends javax.swing.JInternalFrame {
             }
         });
         jPanel2.add(btnSubmit);
-        btnSubmit.setBounds(220, 440, 70, 60);
+        btnSubmit.setBounds(220, 440, 110, 40);
 
         txtApelido.setBackground(new java.awt.Color(144, 180, 90));
         txtApelido.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N

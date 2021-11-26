@@ -5,13 +5,12 @@
  */
 package Operacao;
 
-import static java.awt.Color.*;
 import java.awt.Component;
 import java.awt.event.MouseEvent;
 import java.text.DateFormat;
 import java.util.Date;
 import javax.swing.JDesktopPane;
-import javax.swing.JInternalFrame;
+
 
 /**
  *
@@ -51,6 +50,7 @@ public class Menu extends javax.swing.JFrame {
         lblUser = new javax.swing.JLabel();
         lblData = new javax.swing.JLabel();
         btnHelp = new javax.swing.JButton();
+        lblUsuario = new javax.swing.JLabel();
         desktop = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -180,35 +180,42 @@ public class Menu extends javax.swing.JFrame {
         btnHelp.setBackground(new java.awt.Color(0, 204, 204));
         btnHelp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/icons/Help.png"))); // NOI18N
 
+        lblUsuario.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        lblUsuario.setText("Usuario");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(830, Short.MAX_VALUE)
-                .addComponent(lblUser, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(810, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(lblData)
-                        .addGap(42, 42, 42))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblUser, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblUsuario))
+                        .addGap(62, 62, 62)
                         .addComponent(btnHelp, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblData)
+                        .addGap(68, 68, 68))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblUser, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblUsuario)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblUser, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnHelp, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(8, 8, 8)))
                 .addGap(18, 18, 18)
                 .addComponent(lblData)
-                .addGap(24, 24, 24))
+                .addGap(32, 32, 32))
         );
 
         jPanel3.add(jPanel1);
@@ -299,12 +306,6 @@ public class Menu extends javax.swing.JFrame {
 
   
 
-    
-
-    /*private void formWindowActivated (java.awt.event.WindowEvent evt){
-        Date data = new Date();
-        lblData.setText(data.toString());
-    }*/
     /**
      * @param args the command line arguments
      */
@@ -355,5 +356,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JLabel lblData;
     public javax.swing.JLabel lblUser;
+    private javax.swing.JLabel lblUsuario;
     // End of variables declaration//GEN-END:variables
 }

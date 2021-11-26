@@ -146,7 +146,7 @@ public class Cliente extends javax.swing.JInternalFrame {
 
         btnSubmit1.setBackground(new java.awt.Color(144, 180, 90));
         btnSubmit1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        btnSubmit1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/icons/Submit.png"))); // NOI18N
+        btnSubmit1.setText("Adicionar");
         btnSubmit1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         btnSubmit1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnSubmit1.addActionListener(new java.awt.event.ActionListener() {
@@ -155,7 +155,7 @@ public class Cliente extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(btnSubmit1);
-        btnSubmit1.setBounds(160, 260, 60, 60);
+        btnSubmit1.setBounds(110, 260, 110, 30);
 
         jLabel4.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel4.setText("Codigo");
@@ -177,11 +177,11 @@ public class Cliente extends javax.swing.JInternalFrame {
 
         btnApagar.setBackground(new java.awt.Color(144, 180, 90));
         btnApagar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        btnApagar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/icons/X.png"))); // NOI18N
+        btnApagar.setText("Apagar");
         btnApagar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         btnApagar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jPanel1.add(btnApagar);
-        btnApagar.setBounds(240, 261, 60, 59);
+        btnApagar.setBounds(240, 261, 60, 30);
 
         btnUpdate.setBackground(new java.awt.Color(144, 180, 90));
         btnUpdate.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -197,7 +197,7 @@ public class Cliente extends javax.swing.JInternalFrame {
         btnUpdate1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         btnUpdate1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jPanel1.add(btnUpdate1);
-        btnUpdate1.setBounds(320, 260, 90, 60);
+        btnUpdate1.setBounds(320, 260, 90, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

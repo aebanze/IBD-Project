@@ -18,20 +18,37 @@ Connection conexao = null;
 PreparedStatement pst = null;
 ResultSet rs = null;
 
-    Validar valida;
+
+    public void entrar(){
+        String  sql = "select * from funcionario where username = ? and senha = ?";
+        try {
+            //validando usuario
+            pst = conexao.prepareStatement(sql);
+            pst.setString(1, txtUsuario.getText());
+            pst.setString(2, pWord.getText());
+            //executando a query
+            rs = pst.executeQuery();
+            
+            if(rs.next()){
+                new Menu().setVisible(true);
+                new Menu().lblUser.setText(rs.getString(2));
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Usuario e/ou senha invalido");
+                pWord.setText("");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
     /**
      * Creates new form LogIn
      */
     public LogIn() {
         initComponents();
-        valida= new Validar();
         conexao = Conexao.Conector();
         //System.out.println(conexao
-        if (conexao != null){
-            lblStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("caminho...")));
-        } else{
-            
-        }
+        
     }
 
     /**
@@ -50,7 +67,6 @@ ResultSet rs = null;
         txtUsuario = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         btnEntrar1 = new javax.swing.JButton();
-        lblStatus = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema de Pastelaria");
@@ -98,10 +114,6 @@ ResultSet rs = null;
         jPanel3.add(btnEntrar1);
         btnEntrar1.setBounds(220, 150, 53, 23);
 
-        lblStatus.setText("Status");
-        jPanel3.add(lblStatus);
-        lblStatus.setBounds(50, 220, 31, 14);
-
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 270));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -121,16 +133,7 @@ ResultSet rs = null;
 
     private void btnEntrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrar1ActionPerformed
         // TODO add your handling code here:
-        String nome = txtUsuario.getText();
-        String senha = pWord.getText();
-        if (valida.Usuario(nome, senha)){
-            new Menu().setVisible(true);
-            new Menu().lblUser.setText(txtUsuario.getText());
-            this.dispose();
-        } else {
-            JOptionPane.showMessageDialog(null, "Usuário ou senha inválida");
-            pWord.setText("");
-        }
+       entrar();
     }//GEN-LAST:event_btnEntrar1ActionPerformed
 
     /**
@@ -174,7 +177,6 @@ ResultSet rs = null;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JLabel lblStatus;
     private javax.swing.JPasswordField pWord;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
