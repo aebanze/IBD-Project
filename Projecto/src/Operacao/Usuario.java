@@ -20,7 +20,6 @@ public class Usuario extends javax.swing.JInternalFrame {
     PreparedStatement pst2 = null;
     ResultSet rs = null;
     
-    
     /**
      * Creates new form Usuario
      */
@@ -30,31 +29,24 @@ public class Usuario extends javax.swing.JInternalFrame {
     }
 
     private void Adicionar(){
-        String sql = "insert into funcionario (func_cod, func_nome, func_apelido, func_id_doc, func_nr_doc, func_email, func_nacionalidade, func_es_civil, func_sexo,  func_destrito, func_bairro, func_cidade, username, senha) Values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-        String sql2 = "insert into telefone (func_cod, telefone) Values (?,?)";
+        String sql = "insert into funcionario (func_nome, func_apelido, func_id_doc, func_nr_doc, func_email, func_nacionalidade, func_es_civil, func_sexo,  func_destrito, func_bairro, func_cidade, username, senha) Values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
         try {
             pst = conexao.prepareStatement(sql);
-            pst.setString(1, txtCod.getText());
-            pst.setString(2, txtNomes.getText());
-            pst.setString(3, txtApelido.getText());
-            pst.setString(4, comboDocumento.getSelectedItem().toString());
-            pst.setString(5, txtNrDocumento.getText());
-            pst.setString(6, txtEmail.getText());
-            pst.setString(7, txtNacionalidade.getText());
-            pst.setString(8, combEstado.getSelectedItem().toString());
-            pst.setString(9, comboSexo.getSelectedItem().toString());
-            pst.setString(10, txtDistrito.getText());
-            pst.setString(11, txtBairro.getText());
-            pst.setString(12, txtCidade.getText());
-            pst.setString(13, txtNomes.getText());
-            pst.setString(14, txtSenha.getText());
-            
-            pst2 = conexao.prepareStatement(sql2);
-            pst2.setString(1, txtCod.getText());
-            pst2.setString(2, txtCell1.getText());
-            if (!txtCell2.getText().isEmpty()){
-                pst2.setString(3, txtCell2.getText());
-            }
+            pst.setString(1, txtNomes.getText());
+            pst.setString(2, txtApelido.getText());
+            pst.setString(3, comboDocumento.getSelectedItem().toString());
+            pst.setString(4, txtNrDocumento.getText());
+            pst.setString(5, txtEmail.getText());
+            pst.setString(6, txtNacionalidade.getText());
+            pst.setString(7, combEstado.getSelectedItem().toString());
+            pst.setString(8, comboSexo.getSelectedItem().toString());
+            pst.setString(9, txtDistrito.getText());
+            pst.setString(10, txtBairro.getText());
+            pst.setString(11, txtCidade.getText());
+            pst.setString(12, txtUserName.getText());
+            pst.setString(13, txtSenha.getText());
+           
+           
             //validar campos obrigatorios
             if (txtNomes.getText().equals("") || txtNrDocumento.getText().equals("") || txtEmail.getText().equals("") || txtSenha.getText().equals("") || txtCidade.getText().equals("")|| txtCell1.getText().equals("")){
                 JOptionPane.showMessageDialog(null, "Preencha todos os campos importantes");
@@ -62,7 +54,6 @@ public class Usuario extends javax.swing.JInternalFrame {
                 //adicionando a DB
                 
                 int resultado = pst.executeUpdate();
-                int resultado2 = pst2.executeUpdate();
                 
                 if(resultado > 0){
                     JOptionPane.showMessageDialog(null, "Usuario adicionado com sucesso!!!");
@@ -77,6 +68,32 @@ public class Usuario extends javax.swing.JInternalFrame {
                     txtCod.setText(null);
                     txtNacionalidade.setText(null);
                 }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        String sql2 = "insert into telefone (func_cod, telefone) Values (?,?)";
+        recuperarCod();
+        try {
+            pst2 = conexao.prepareStatement(sql2);
+            pst2.setString(1, txtCod.getText());
+            pst2.setString(2, txtCell1.getText());
+            
+            pst2.executeUpdate();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }
+    
+    private void recuperarCod (){
+        String sql = "select max(func_cod) from funcionario";
+        try {
+            pst = conexao.prepareStatement(sql);
+            rs = pst.executeQuery();
+            
+            if (rs.next()){
+                txtCod.setText(rs.getString(1));
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
@@ -101,7 +118,7 @@ public class Usuario extends javax.swing.JInternalFrame {
         txtNomes = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         txtCell1 = new javax.swing.JTextField();
-        txtCell2 = new javax.swing.JTextField();
+        txtUserName = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
@@ -160,6 +177,8 @@ public class Usuario extends javax.swing.JInternalFrame {
         txtCod = new javax.swing.JTextField();
         btnPesquisa = new javax.swing.JButton();
         comboSexo = new javax.swing.JComboBox<>();
+        btnUpdate = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -180,7 +199,7 @@ public class Usuario extends javax.swing.JInternalFrame {
             }
         });
         jPanel2.add(btnSubmit);
-        btnSubmit.setBounds(220, 440, 110, 40);
+        btnSubmit.setBounds(240, 440, 110, 40);
 
         txtApelido.setBackground(new java.awt.Color(144, 180, 90));
         txtApelido.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
@@ -216,28 +235,26 @@ public class Usuario extends javax.swing.JInternalFrame {
         txtNomes.setBounds(180, 140, 130, 20);
 
         jLabel7.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jLabel7.setText("Celular 1");
+        jLabel7.setText("Celular");
         jPanel2.add(jLabel7);
-        jLabel7.setBounds(60, 210, 69, 18);
+        jLabel7.setBounds(60, 250, 54, 18);
 
         txtCell1.setBackground(new java.awt.Color(144, 180, 90));
         txtCell1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        txtCell1.setText("+258 ");
         txtCell1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jPanel2.add(txtCell1);
-        txtCell1.setBounds(180, 210, 131, 20);
+        txtCell1.setBounds(180, 250, 131, 20);
 
-        txtCell2.setBackground(new java.awt.Color(144, 180, 90));
-        txtCell2.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        txtCell2.setText("+258 ");
-        txtCell2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jPanel2.add(txtCell2);
-        txtCell2.setBounds(180, 240, 131, 20);
+        txtUserName.setBackground(new java.awt.Color(144, 180, 90));
+        txtUserName.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        txtUserName.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel2.add(txtUserName);
+        txtUserName.setBounds(180, 210, 131, 20);
 
         jLabel6.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jLabel6.setText("Celular 2");
+        jLabel6.setText("UserName");
         jPanel2.add(jLabel6);
-        jLabel6.setBounds(60, 240, 69, 18);
+        jLabel6.setBounds(60, 210, 100, 18);
 
         jLabel8.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel8.setText("e-mail");
@@ -309,7 +326,7 @@ public class Usuario extends javax.swing.JInternalFrame {
         comboDocumento.setBackground(new java.awt.Color(144, 180, 90));
         comboDocumento.setEditable(true);
         comboDocumento.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        comboDocumento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "BI", "Passaport", "Dire", "Carta de Condução" }));
+        comboDocumento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "BI", "Passport", "DIRE" }));
         comboDocumento.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         comboDocumento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -322,7 +339,7 @@ public class Usuario extends javax.swing.JInternalFrame {
         combEstado.setBackground(new java.awt.Color(144, 180, 90));
         combEstado.setEditable(true);
         combEstado.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        combEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "solteiro", "casado", "divorciado", "viuvo" }));
+        combEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "solteiro/a", "casado/a", "divorciado/a", "viuvo/a" }));
         combEstado.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         combEstado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -605,6 +622,32 @@ public class Usuario extends javax.swing.JInternalFrame {
         jPanel2.add(comboSexo);
         comboSexo.setBounds(180, 310, 124, 24);
 
+        btnUpdate.setBackground(new java.awt.Color(144, 180, 90));
+        btnUpdate.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        btnUpdate.setText("Actualizar");
+        btnUpdate.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        btnUpdate.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnUpdate);
+        btnUpdate.setBounds(360, 440, 110, 40);
+
+        btnDelete.setBackground(new java.awt.Color(144, 180, 90));
+        btnDelete.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        btnDelete.setText("Actualizar");
+        btnDelete.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        btnDelete.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnDelete);
+        btnDelete.setBounds(480, 440, 110, 40);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -650,11 +693,21 @@ public class Usuario extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_comboSexoActionPerformed
 
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnPesquisa;
     private javax.swing.JButton btnSubmit;
     private javax.swing.JButton btnSubmit1;
+    private javax.swing.JButton btnUpdate;
     private javax.swing.JComboBox<String> combEstado;
     private javax.swing.JComboBox<String> comboDocumento;
     private javax.swing.JComboBox<String> comboSexo;
@@ -712,7 +765,6 @@ public class Usuario extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtApelido;
     private javax.swing.JTextField txtBairro;
     private javax.swing.JTextField txtCell1;
-    private javax.swing.JTextField txtCell2;
     private javax.swing.JTextField txtCidade;
     private javax.swing.JTextField txtCod;
     private javax.swing.JTextField txtDistrito;
@@ -721,5 +773,6 @@ public class Usuario extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtNomes;
     private javax.swing.JTextField txtNrDocumento;
     private javax.swing.JTextField txtSenha;
+    private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
 }
