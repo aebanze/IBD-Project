@@ -6,7 +6,6 @@
 package Operacao;
 
 import javax.swing.JOptionPane;
-import Validacao.Validar;
 import java.sql.*;
 import Validacao.Conexao;
 /**
@@ -31,7 +30,7 @@ ResultSet rs = null;
             
             if(rs.next()){
                 new Menu().setVisible(true);
-                new Menu().lblUser.setText(rs.getString(2));
+                new Menu().lblUsuario.setText(rs.getString(2));
                 this.dispose();
             } else {
                 JOptionPane.showMessageDialog(null, "Usuario e/ou senha invalido");

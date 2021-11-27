@@ -355,7 +355,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JLabel lblData;
-    public javax.swing.JLabel lblUser;
-    private javax.swing.JLabel lblUsuario;
+    private javax.swing.JLabel lblUser;
+    public static javax.swing.JLabel lblUsuario;
     // End of variables declaration//GEN-END:variables
 }

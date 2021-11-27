@@ -5,19 +5,83 @@
  */
 package Operacao;
 
+import java.sql.*;
+import javax.swing.JOptionPane;
+import Validacao.Conexao;
+
 /**
  *
  * @author Angel Banze
  */
 public class Usuario extends javax.swing.JInternalFrame {
 
+    Connection conexao = null;
+    PreparedStatement pst = null;
+    PreparedStatement pst2 = null;
+    ResultSet rs = null;
+    
+    
     /**
      * Creates new form Usuario
      */
     public Usuario() {
         initComponents();
+        conexao = Conexao.Conector();
     }
 
+    private void Adicionar(){
+        String sql = "insert into funcionario (func_cod, func_nome, func_apelido, func_id_doc, func_nr_doc, func_email, func_nacionalidade, func_es_civil, func_sexo,  func_destrito, func_bairro, func_cidade, username, senha) Values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql2 = "insert into telefone (func_cod, telefone) Values (?,?)";
+        try {
+            pst = conexao.prepareStatement(sql);
+            pst.setString(1, txtCod.getText());
+            pst.setString(2, txtNomes.getText());
+            pst.setString(3, txtApelido.getText());
+            pst.setString(4, comboDocumento.getSelectedItem().toString());
+            pst.setString(5, txtNrDocumento.getText());
+            pst.setString(6, txtEmail.getText());
+            pst.setString(7, txtNacionalidade.getText());
+            pst.setString(8, combEstado.getSelectedItem().toString());
+            pst.setString(9, comboSexo.getSelectedItem().toString());
+            pst.setString(10, txtDistrito.getText());
+            pst.setString(11, txtBairro.getText());
+            pst.setString(12, txtCidade.getText());
+            pst.setString(13, txtNomes.getText());
+            pst.setString(14, txtSenha.getText());
+            
+            pst2 = conexao.prepareStatement(sql2);
+            pst2.setString(1, txtCod.getText());
+            pst2.setString(2, txtCell1.getText());
+            if (!txtCell2.getText().isEmpty()){
+                pst2.setString(3, txtCell2.getText());
+            }
+            //validar campos obrigatorios
+            if (txtNomes.getText().equals("") || txtNrDocumento.getText().equals("") || txtEmail.getText().equals("") || txtSenha.getText().equals("") || txtCidade.getText().equals("")|| txtCell1.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "Preencha todos os campos importantes");
+            } else {
+                //adicionando a DB
+                
+                int resultado = pst.executeUpdate();
+                int resultado2 = pst2.executeUpdate();
+                
+                if(resultado > 0){
+                    JOptionPane.showMessageDialog(null, "Usuario adicionado com sucesso!!!");
+                    txtNomes.setText(null);
+                    txtDistrito.setText(null);
+                    txtBairro.setText(null);
+                    txtCidade.setText(null);
+                    txtSenha.setText(null);
+                    txtEmail.setText(null);
+                    txtNrDocumento.setText(null);
+                    txtApelido.setText(null);
+                    txtCod.setText(null);
+                    txtNacionalidade.setText(null);
+                }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -44,8 +108,6 @@ public class Usuario extends javax.swing.JInternalFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         txtNacionalidade = new javax.swing.JTextField();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
         jLabel14 = new javax.swing.JLabel();
         txtCidade = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
@@ -97,6 +159,7 @@ public class Usuario extends javax.swing.JInternalFrame {
         jLabel4 = new javax.swing.JLabel();
         txtCod = new javax.swing.JTextField();
         btnPesquisa = new javax.swing.JButton();
+        comboSexo = new javax.swing.JComboBox<>();
 
         setClosable(true);
         setIconifiable(true);
@@ -191,7 +254,7 @@ public class Usuario extends javax.swing.JInternalFrame {
         jLabel9.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel9.setText("Genero");
         jPanel2.add(jLabel9);
-        jLabel9.setBounds(60, 300, 56, 18);
+        jLabel9.setBounds(60, 310, 56, 18);
 
         jLabel17.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel17.setText("Nacionalidade");
@@ -203,29 +266,6 @@ public class Usuario extends javax.swing.JInternalFrame {
         txtNacionalidade.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jPanel2.add(txtNacionalidade);
         txtNacionalidade.setBounds(180, 340, 130, 20);
-
-        jRadioButton1.setBackground(new java.awt.Color(144, 180, 90));
-        jRadioButton1.setSelected(true);
-        jRadioButton1.setText("Masc");
-        jRadioButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jRadioButton1);
-        jRadioButton1.setBounds(170, 300, 45, 19);
-
-        jRadioButton2.setBackground(new java.awt.Color(144, 180, 90));
-        jRadioButton2.setText("Fem");
-        jRadioButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jRadioButton2);
-        jRadioButton2.setBounds(230, 300, 41, 19);
 
         jLabel14.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel14.setText("Cidade");
@@ -277,12 +317,12 @@ public class Usuario extends javax.swing.JInternalFrame {
             }
         });
         jPanel2.add(comboDocumento);
-        comboDocumento.setBounds(630, 210, 124, 24);
+        comboDocumento.setBounds(630, 220, 124, 24);
 
         combEstado.setBackground(new java.awt.Color(144, 180, 90));
         combEstado.setEditable(true);
         combEstado.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        combEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Solteiro", "Casado", "Divorciado", "Viuvo" }));
+        combEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "solteiro", "casado", "divorciado", "viuvo" }));
         combEstado.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         combEstado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -552,6 +592,19 @@ public class Usuario extends javax.swing.JInternalFrame {
         jPanel2.add(btnPesquisa);
         btnPesquisa.setBounds(360, 80, 110, 20);
 
+        comboSexo.setBackground(new java.awt.Color(144, 180, 90));
+        comboSexo.setEditable(true);
+        comboSexo.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        comboSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "M", "F" }));
+        comboSexo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        comboSexo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboSexoActionPerformed(evt);
+            }
+        });
+        jPanel2.add(comboSexo);
+        comboSexo.setBounds(180, 310, 124, 24);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -570,6 +623,7 @@ public class Usuario extends javax.swing.JInternalFrame {
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
+        Adicionar();
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void comboDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboDocumentoActionPerformed
@@ -592,19 +646,9 @@ public class Usuario extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox4ActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void comboSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSexoActionPerformed
         // TODO add your handling code here:
-        if (jRadioButton1.isEnabled()){
-            jRadioButton1.setEnabled(false);
-        }
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
-
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        // TODO add your handling code here:
-        if (jRadioButton2.isEnabled()){
-            jRadioButton2.setEnabled(false);
-        }
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_comboSexoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -613,6 +657,7 @@ public class Usuario extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnSubmit1;
     private javax.swing.JComboBox<String> combEstado;
     private javax.swing.JComboBox<String> comboDocumento;
+    private javax.swing.JComboBox<String> comboSexo;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
@@ -651,8 +696,6 @@ public class Usuario extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JTextField jTextField12;
