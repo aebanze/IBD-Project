@@ -86,12 +86,14 @@ ResultSet rs = null;
 
         pWord.setBackground(new java.awt.Color(144, 180, 90));
         pWord.setFont(new java.awt.Font("OCR A Extended", 1, 16)); // NOI18N
+        pWord.setText("Nguilazi");
         pWord.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jPanel3.add(pWord);
         pWord.setBounds(140, 100, 241, 30);
 
         txtUsuario.setBackground(new java.awt.Color(144, 180, 90));
         txtUsuario.setFont(new java.awt.Font("OCR A Extended", 1, 16)); // NOI18N
+        txtUsuario.setText("Angel");
         txtUsuario.setToolTipText("");
         txtUsuario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jPanel3.add(txtUsuario);

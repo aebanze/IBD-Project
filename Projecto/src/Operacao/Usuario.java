@@ -8,6 +8,7 @@ package Operacao;
 import java.sql.*;
 import javax.swing.JOptionPane;
 import Validacao.Conexao;
+import net.proteanit.sql.DbUtils;
 
 /**
  *
@@ -48,7 +49,7 @@ public class Usuario extends javax.swing.JInternalFrame {
            
            
             //validar campos obrigatorios
-            if (txtNomes.getText().equals("") || txtNrDocumento.getText().equals("") || txtEmail.getText().equals("") || txtSenha.getText().equals("") || txtCidade.getText().equals("")|| txtCell1.getText().equals("")){
+            if (txtNomes.getText().equals("") || txtNrDocumento.getText().equals("") || txtEmail.getText().equals("") || txtSenha.getText().equals("") || txtCidade.getText().equals("")|| txtCell1.getText().equals("") || txtUserName.getText().equals("")){
                 JOptionPane.showMessageDialog(null, "Preencha todos os campos importantes");
             } else {
                 //adicionando a DB
@@ -79,6 +80,27 @@ public class Usuario extends javax.swing.JInternalFrame {
             pst2.setString(1, txtCod.getText());
             pst2.setString(2, txtCell1.getText());
             
+            if (txtNomes.getText().equals("") || txtNrDocumento.getText().equals("") || txtEmail.getText().equals("") || txtSenha.getText().equals("") || txtCidade.getText().equals("")|| txtCell1.getText().equals("") || txtUserName.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "Preencha todos os campos importantes");
+            } else {
+                //adicionando a DB
+                
+                int resultado = pst.executeUpdate();
+                
+                if(resultado > 0){
+                    JOptionPane.showMessageDialog(null, "Dados actualizados com sucesso!!!");
+                    txtNomes.setText(null);
+                    txtDistrito.setText(null);
+                    txtBairro.setText(null);
+                    txtCidade.setText(null);
+                    txtSenha.setText(null);
+                    txtEmail.setText(null);
+                    txtNrDocumento.setText(null);
+                    txtApelido.setText(null);
+                    txtCod.setText(null);
+                    txtNacionalidade.setText(null);
+                }
+            }
             pst2.executeUpdate();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
@@ -98,6 +120,65 @@ public class Usuario extends javax.swing.JInternalFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
+    }
+    
+    private void actualizar (){
+        String sql = "update funcionario set func_nome= ?, func_apelido = ?, func_id_doc = ?, func_nr_doc = ?, func_email = ?, func_nacionalidade = ?, func_es_civil = ?, func_sexo = ?,  func_destrito = ?, func_bairro = ?, func_cidade = ?, username = ?, senha = ? where func_cod = ?";
+        
+        try {
+            pst = conexao.prepareStatement(sql); 
+            
+            pst.setString(1, txtNomes.getText());
+            pst.setString(2, txtApelido.getText());
+            pst.setString(3, comboDocumento.getSelectedItem().toString());
+            pst.setString(4, txtNrDocumento.getText());
+            pst.setString(5, txtEmail.getText());
+            pst.setString(6, txtNacionalidade.getText());
+            pst.setString(7, combEstado.getSelectedItem().toString());
+            pst.setString(8, comboSexo.getSelectedItem().toString());
+            pst.setString(9, txtDistrito.getText());
+            pst.setString(10, txtBairro.getText());
+            pst.setString(11, txtCidade.getText());
+            pst.setString(12, txtUserName.getText());
+            pst.setString(13, txtSenha.getText());
+            pst.setString(14, txtCod.getText());
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    
+    private void PesquisaUsuario (){
+        String sql = "select * from funcionario inner join telefone on func_cod = cod_func where func_nome like ?";
+        try {
+            pst = conexao.prepareStatement(sql);
+            //copiando da DB para a tela
+            pst.setString(1, txtChave.getText() + "%");
+            rs = pst.executeQuery();
+            
+            //usando a bivlioteca rs2xml para preencher os outros campos
+            tblFuncionario.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    
+    private void Preencher(){
+        int posicao = tblFuncionario.getSelectedRow();
+        txtNomes.setText(tblFuncionario.getModel().getValueAt(posicao, 1).toString());
+        txtApelido.setText(tblFuncionario.getModel().getValueAt(posicao, 2).toString());
+        comboDocumento.setSelectedItem(tblFuncionario.getModel().getValueAt(posicao, 3).toString());
+        txtNrDocumento.setText(tblFuncionario.getModel().getValueAt(posicao, 4).toString());
+        txtEmail.setText(tblFuncionario.getModel().getValueAt(posicao, 5).toString());
+        txtNacionalidade.setText(tblFuncionario.getModel().getValueAt(posicao, 6).toString());
+        combEstado.setSelectedItem(tblFuncionario.getModel().getValueAt(posicao, 7).toString());
+        comboSexo.setSelectedItem(tblFuncionario.getModel().getValueAt(posicao, 8).toString());
+        txtBairro.setText(tblFuncionario.getModel().getValueAt(posicao, 9).toString());
+        txtDistrito.setText(tblFuncionario.getModel().getValueAt(posicao, 10).toString());
+        txtCidade.setText(tblFuncionario.getModel().getValueAt(posicao, 11).toString());
+        txtUserName.setText(tblFuncionario.getModel().getValueAt(posicao, 12).toString());
+        txtSenha.setText(tblFuncionario.getModel().getValueAt(posicao, 13).toString());
+        txtCell1.setText(tblFuncionario.getModel().getValueAt(posicao, 15).toString());
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -175,10 +256,13 @@ public class Usuario extends javax.swing.JInternalFrame {
         jLabel34 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtCod = new javax.swing.JTextField();
-        btnPesquisa = new javax.swing.JButton();
         comboSexo = new javax.swing.JComboBox<>();
         btnUpdate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
+        jLabel35 = new javax.swing.JLabel();
+        txtChave = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblFuncionario = new javax.swing.JTable();
 
         setClosable(true);
         setIconifiable(true);
@@ -199,7 +283,7 @@ public class Usuario extends javax.swing.JInternalFrame {
             }
         });
         jPanel2.add(btnSubmit);
-        btnSubmit.setBounds(240, 440, 110, 40);
+        btnSubmit.setBounds(250, 380, 110, 40);
 
         txtApelido.setBackground(new java.awt.Color(144, 180, 90));
         txtApelido.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
@@ -213,14 +297,14 @@ public class Usuario extends javax.swing.JInternalFrame {
         jLabel3.setBounds(60, 110, 58, 18);
 
         jLabel2.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jLabel2.setText("Outros nomes");
+        jLabel2.setText("*Outros nomes");
         jPanel2.add(jLabel2);
-        jLabel2.setBounds(60, 140, 109, 18);
+        jLabel2.setBounds(49, 140, 120, 18);
 
         jLabel10.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jLabel10.setText("Senha LogIn");
+        jLabel10.setText("*Senha LogIn");
         jPanel2.add(jLabel10);
-        jLabel10.setBounds(60, 170, 100, 18);
+        jLabel10.setBounds(50, 170, 110, 18);
 
         txtSenha.setBackground(new java.awt.Color(144, 180, 90));
         txtSenha.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
@@ -235,9 +319,9 @@ public class Usuario extends javax.swing.JInternalFrame {
         txtNomes.setBounds(180, 140, 130, 20);
 
         jLabel7.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jLabel7.setText("Celular");
+        jLabel7.setText("*Celular");
         jPanel2.add(jLabel7);
-        jLabel7.setBounds(60, 250, 54, 18);
+        jLabel7.setBounds(50, 250, 64, 18);
 
         txtCell1.setBackground(new java.awt.Color(144, 180, 90));
         txtCell1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
@@ -252,14 +336,14 @@ public class Usuario extends javax.swing.JInternalFrame {
         txtUserName.setBounds(180, 210, 131, 20);
 
         jLabel6.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jLabel6.setText("UserName");
+        jLabel6.setText("*UserName");
         jPanel2.add(jLabel6);
-        jLabel6.setBounds(60, 210, 100, 18);
+        jLabel6.setBounds(50, 210, 100, 18);
 
         jLabel8.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jLabel8.setText("e-mail");
+        jLabel8.setText("*e-mail");
         jPanel2.add(jLabel8);
-        jLabel8.setBounds(60, 280, 47, 18);
+        jLabel8.setBounds(47, 280, 60, 18);
 
         txtEmail.setBackground(new java.awt.Color(144, 180, 90));
         txtEmail.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
@@ -287,41 +371,41 @@ public class Usuario extends javax.swing.JInternalFrame {
         jLabel14.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel14.setText("Cidade");
         jPanel2.add(jLabel14);
-        jLabel14.setBounds(470, 320, 53, 18);
+        jLabel14.setBounds(450, 170, 53, 18);
 
         txtCidade.setBackground(new java.awt.Color(144, 180, 90));
         txtCidade.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         txtCidade.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jPanel2.add(txtCidade);
-        txtCidade.setBounds(430, 350, 130, 20);
+        txtCidade.setBounds(410, 200, 130, 20);
 
         jLabel15.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel15.setText("Distrito");
         jPanel2.add(jLabel15);
-        jLabel15.setBounds(620, 320, 56, 18);
+        jLabel15.setBounds(600, 170, 56, 18);
 
         txtDistrito.setBackground(new java.awt.Color(144, 180, 90));
         txtDistrito.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         txtDistrito.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jPanel2.add(txtDistrito);
-        txtDistrito.setBounds(580, 350, 130, 20);
+        txtDistrito.setBounds(560, 200, 130, 20);
 
         jLabel16.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel16.setText("Bairro");
         jPanel2.add(jLabel16);
-        jLabel16.setBounds(760, 320, 48, 18);
+        jLabel16.setBounds(740, 170, 48, 18);
 
         txtBairro.setBackground(new java.awt.Color(144, 180, 90));
         txtBairro.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         txtBairro.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jPanel2.add(txtBairro);
-        txtBairro.setBounds(720, 350, 130, 20);
+        txtBairro.setBounds(700, 200, 130, 20);
 
         txtNrDocumento.setBackground(new java.awt.Color(144, 180, 90));
         txtNrDocumento.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         txtNrDocumento.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jPanel2.add(txtNrDocumento);
-        txtNrDocumento.setBounds(630, 250, 188, 20);
+        txtNrDocumento.setBounds(610, 100, 188, 20);
 
         comboDocumento.setBackground(new java.awt.Color(144, 180, 90));
         comboDocumento.setEditable(true);
@@ -334,7 +418,7 @@ public class Usuario extends javax.swing.JInternalFrame {
             }
         });
         jPanel2.add(comboDocumento);
-        comboDocumento.setBounds(630, 220, 124, 24);
+        comboDocumento.setBounds(610, 70, 124, 24);
 
         combEstado.setBackground(new java.awt.Color(144, 180, 90));
         combEstado.setEditable(true);
@@ -347,34 +431,34 @@ public class Usuario extends javax.swing.JInternalFrame {
             }
         });
         jPanel2.add(combEstado);
-        combEstado.setBounds(630, 180, 124, 24);
+        combEstado.setBounds(610, 30, 124, 24);
 
         jLabel5.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel5.setText("Estado Civil");
         jPanel2.add(jLabel5);
-        jLabel5.setBounds(460, 180, 90, 18);
+        jLabel5.setBounds(440, 30, 90, 18);
 
         jLabel12.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel12.setText("Tipo de Documento");
         jPanel2.add(jLabel12);
-        jLabel12.setBounds(460, 220, 151, 18);
+        jLabel12.setBounds(440, 70, 151, 18);
 
         jLabel11.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jLabel11.setText("Nº do Documento");
+        jLabel11.setText("*Nº do Documento");
         jPanel2.add(jLabel11);
-        jLabel11.setBounds(460, 250, 150, 18);
+        jLabel11.setBounds(440, 100, 150, 18);
 
         jLabel13.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(153, 51, 0));
         jLabel13.setText("Morada");
         jPanel2.add(jLabel13);
-        jLabel13.setBounds(460, 290, 58, 18);
+        jLabel13.setBounds(440, 140, 58, 18);
 
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(153, 51, 0));
         jLabel1.setText("Dados");
         jPanel2.add(jLabel1);
-        jLabel1.setBounds(60, 30, 48, 18);
+        jLabel1.setBounds(60, 50, 48, 18);
 
         jPanel3.setBackground(new java.awt.Color(144, 180, 90));
         jPanel3.setLayout(null);
@@ -602,13 +686,6 @@ public class Usuario extends javax.swing.JInternalFrame {
         jPanel2.add(txtCod);
         txtCod.setBounds(180, 80, 130, 20);
 
-        btnPesquisa.setBackground(new java.awt.Color(144, 180, 90));
-        btnPesquisa.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        btnPesquisa.setText("Pesquisar");
-        btnPesquisa.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jPanel2.add(btnPesquisa);
-        btnPesquisa.setBounds(360, 80, 110, 20);
-
         comboSexo.setBackground(new java.awt.Color(144, 180, 90));
         comboSexo.setEditable(true);
         comboSexo.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
@@ -633,11 +710,11 @@ public class Usuario extends javax.swing.JInternalFrame {
             }
         });
         jPanel2.add(btnUpdate);
-        btnUpdate.setBounds(360, 440, 110, 40);
+        btnUpdate.setBounds(370, 380, 110, 40);
 
         btnDelete.setBackground(new java.awt.Color(144, 180, 90));
         btnDelete.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        btnDelete.setText("Actualizar");
+        btnDelete.setText("Apagar");
         btnDelete.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         btnDelete.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -646,13 +723,56 @@ public class Usuario extends javax.swing.JInternalFrame {
             }
         });
         jPanel2.add(btnDelete);
-        btnDelete.setBounds(480, 440, 110, 40);
+        btnDelete.setBounds(500, 380, 110, 40);
+
+        jLabel35.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        jLabel35.setText("Chave");
+        jPanel2.add(jLabel35);
+        jLabel35.setBounds(60, 30, 48, 18);
+
+        txtChave.setBackground(new java.awt.Color(144, 180, 90));
+        txtChave.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        txtChave.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        txtChave.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtChaveKeyReleased(evt);
+            }
+        });
+        jPanel2.add(txtChave);
+        txtChave.setBounds(180, 30, 130, 20);
+
+        jScrollPane1.setToolTipText("");
+
+        tblFuncionario.setBackground(new java.awt.Color(144, 180, 90));
+        tblFuncionario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        tblFuncionario.setFont(new java.awt.Font("Javanese Text", 0, 10)); // NOI18N
+        tblFuncionario.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "func_cod", "func_nome", "func_apelido", "Title 4", "Title 5", "Title 6", "Title 7", "Title 8", "Title 9", "Title 10", "Title 11", "Title 12", "Title 13", "Title 14", "Title 15"
+            }
+        ));
+        tblFuncionario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblFuncionarioMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tblFuncionario);
+
+        jPanel2.add(jScrollPane1);
+        jScrollPane1.setBounds(0, 440, 920, 100);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 854, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 917, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -701,10 +821,19 @@ public class Usuario extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDeleteActionPerformed
 
+    private void txtChaveKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtChaveKeyReleased
+        // enquanto digitando vai actualizando
+        PesquisaUsuario();
+    }//GEN-LAST:event_txtChaveKeyReleased
+
+    private void tblFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblFuncionarioMouseClicked
+        // TODO add your handling code here:
+        Preencher();
+    }//GEN-LAST:event_tblFuncionarioMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;
-    private javax.swing.JButton btnPesquisa;
     private javax.swing.JButton btnSubmit;
     private javax.swing.JButton btnSubmit1;
     private javax.swing.JButton btnUpdate;
@@ -741,6 +870,7 @@ public class Usuario extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -751,6 +881,7 @@ public class Usuario extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JRadioButton jRadioButton4;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField14;
@@ -762,9 +893,11 @@ public class Usuario extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField20;
     private javax.swing.JTextField jTextField21;
     private javax.swing.JTextField jTextField22;
+    private javax.swing.JTable tblFuncionario;
     private javax.swing.JTextField txtApelido;
     private javax.swing.JTextField txtBairro;
     private javax.swing.JTextField txtCell1;
+    private javax.swing.JTextField txtChave;
     private javax.swing.JTextField txtCidade;
     private javax.swing.JTextField txtCod;
     private javax.swing.JTextField txtDistrito;
