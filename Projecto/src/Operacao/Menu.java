@@ -46,6 +46,7 @@ public class Menu extends javax.swing.JFrame {
         btnUsuario = new javax.swing.JButton();
         btnStock = new javax.swing.JButton();
         btnFornecedor = new javax.swing.JButton();
+        btnProduto = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         lblUser = new javax.swing.JLabel();
         lblData = new javax.swing.JLabel();
@@ -135,6 +136,17 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        btnProduto.setBackground(new java.awt.Color(144, 180, 90));
+        btnProduto.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
+        btnProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/icons/UserPrincipal.png"))); // NOI18N
+        btnProduto.setText("Produto");
+        btnProduto.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProdutoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -146,13 +158,14 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(btnCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnStock, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnStock, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 5, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(256, Short.MAX_VALUE)
+                .addContainerGap(207, Short.MAX_VALUE)
                 .addComponent(btnHome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnVenda)
@@ -163,8 +176,10 @@ public class Menu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnStock)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnProduto)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnUsuario)
-                .addGap(98, 98, 98))
+                .addGap(76, 76, 76))
         );
 
         jPanel3.add(jPanel4);
@@ -296,6 +311,13 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnHomeActionPerformed
 
+    private void btnProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdutoActionPerformed
+        // TODO add your handling code here:
+        Fornecimento fornecimento = new Fornecimento();
+        desktop.add(fornecimento);
+        fornecimento.show();
+    }//GEN-LAST:event_btnProdutoActionPerformed
+
     public JDesktopPane getDesktop() {
         return desktop;
     }
@@ -346,6 +368,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnFornecedor;
     private javax.swing.JButton btnHelp;
     private javax.swing.JButton btnHome;
+    private javax.swing.JButton btnProduto;
     private javax.swing.JButton btnStock;
     private javax.swing.JButton btnUsuario;
     private javax.swing.JButton btnVenda;
@@ -355,7 +378,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JLabel lblData;
-    private javax.swing.JLabel lblUser;
+    public javax.swing.JLabel lblUser;
     public static javax.swing.JLabel lblUsuario;
     // End of variables declaration//GEN-END:variables
 }

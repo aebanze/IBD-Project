@@ -58,37 +58,24 @@ public class Usuario extends javax.swing.JInternalFrame {
                 
                 if(resultado > 0){
                     JOptionPane.showMessageDialog(null, "Usuario adicionado com sucesso!!!");
-                    txtNomes.setText(null);
-                    txtDistrito.setText(null);
-                    txtBairro.setText(null);
-                    txtCidade.setText(null);
-                    txtSenha.setText(null);
-                    txtEmail.setText(null);
-                    txtNrDocumento.setText(null);
-                    txtApelido.setText(null);
-                    txtCod.setText(null);
-                    txtNacionalidade.setText(null);
+                    
                 }
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
-        String sql2 = "insert into telefone (func_cod, telefone) Values (?,?)";
+        String sql2 = "insert into telefone (cod_func, telefone) Values (?,?)";
         recuperarCod();
         try {
             pst2 = conexao.prepareStatement(sql2);
             pst2.setString(1, txtCod.getText());
             pst2.setString(2, txtCell1.getText());
-            
-            if (txtNomes.getText().equals("") || txtNrDocumento.getText().equals("") || txtEmail.getText().equals("") || txtSenha.getText().equals("") || txtCidade.getText().equals("")|| txtCell1.getText().equals("") || txtUserName.getText().equals("")){
-                JOptionPane.showMessageDialog(null, "Preencha todos os campos importantes");
-            } else {
-                //adicionando a DB
-                
-                int resultado = pst.executeUpdate();
-                
-                if(resultado > 0){
-                    JOptionPane.showMessageDialog(null, "Dados actualizados com sucesso!!!");
+
+            pst2.executeUpdate();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
                     txtNomes.setText(null);
                     txtDistrito.setText(null);
                     txtBairro.setText(null);
@@ -99,13 +86,9 @@ public class Usuario extends javax.swing.JInternalFrame {
                     txtApelido.setText(null);
                     txtCod.setText(null);
                     txtNacionalidade.setText(null);
-                }
-            }
-            pst2.executeUpdate();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-
+                    txtUserName.setText(null);
+                    txtCell1.setText(null);
+                    txtCod.setText(null);
     }
     
     private void recuperarCod (){
@@ -122,7 +105,7 @@ public class Usuario extends javax.swing.JInternalFrame {
         }
     }
     
-    private void actualizar (){
+    private void Actualizar (){
         String sql = "update funcionario set func_nome= ?, func_apelido = ?, func_id_doc = ?, func_nr_doc = ?, func_email = ?, func_nacionalidade = ?, func_es_civil = ?, func_sexo = ?,  func_destrito = ?, func_bairro = ?, func_cidade = ?, username = ?, senha = ? where func_cod = ?";
         
         try {
@@ -143,9 +126,35 @@ public class Usuario extends javax.swing.JInternalFrame {
             pst.setString(13, txtSenha.getText());
             pst.setString(14, txtCod.getText());
             
+            if (txtNomes.getText().equals("") || txtNrDocumento.getText().equals("") || txtEmail.getText().equals("") || txtSenha.getText().equals("") || txtCidade.getText().equals("")|| txtCell1.getText().equals("") || txtUserName.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "Preencha todos os campos importantes");
+            } else {
+                //adicionando a DB
+                
+                int actualiza = pst.executeUpdate();
+                
+                if(actualiza > 0){
+                    JOptionPane.showMessageDialog(null, "Dados do Usuario alterado com sucesso!!!");
+                    
+                }
+            }
+            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
+                    txtNomes.setText(null);
+                    txtDistrito.setText(null);
+                    txtBairro.setText(null);
+                    txtCidade.setText(null);
+                    txtSenha.setText(null);
+                    txtEmail.setText(null);
+                    txtNrDocumento.setText(null);
+                    txtApelido.setText(null);
+                    txtCod.setText(null);
+                    txtNacionalidade.setText(null);
+                    txtUserName.setText(null);
+                    txtCell1.setText(null);
+                    txtCod.setText(null);
     }
     
     private void PesquisaUsuario (){
@@ -165,6 +174,7 @@ public class Usuario extends javax.swing.JInternalFrame {
     
     private void Preencher(){
         int posicao = tblFuncionario.getSelectedRow();
+        txtCod.setText(tblFuncionario.getModel().getValueAt(posicao, 0).toString());
         txtNomes.setText(tblFuncionario.getModel().getValueAt(posicao, 1).toString());
         txtApelido.setText(tblFuncionario.getModel().getValueAt(posicao, 2).toString());
         comboDocumento.setSelectedItem(tblFuncionario.getModel().getValueAt(posicao, 3).toString());
@@ -179,6 +189,42 @@ public class Usuario extends javax.swing.JInternalFrame {
         txtUserName.setText(tblFuncionario.getModel().getValueAt(posicao, 12).toString());
         txtSenha.setText(tblFuncionario.getModel().getValueAt(posicao, 13).toString());
         txtCell1.setText(tblFuncionario.getModel().getValueAt(posicao, 15).toString());
+    }
+    
+    
+    private void Remover (){
+        int confirmacao = JOptionPane.showConfirmDialog(null, "Certeza que deseja remover usuario???", "Atenção", JOptionPane.YES_NO_OPTION);
+        if (confirmacao == JOptionPane.YES_OPTION){
+            String sql2 = "delete from telefone where cod_func = ?";
+            String sql = "Delete from funcionario where func_cod = ?";
+            
+            try {
+                pst2 = conexao.prepareStatement(sql2);
+                pst2.setString(1, txtCod.getText());
+                int apagar1 = pst2.executeUpdate();
+                pst = conexao.prepareStatement(sql);
+                pst.setString(1, txtCod.getText());
+                int apagar2 = pst.executeUpdate();
+                
+                if (apagar1 > 0 && apagar2 > 0){
+                    JOptionPane.showConfirmDialog(null, "Usuario removido com sucesso");
+                    txtDistrito.setText(null);
+                    txtBairro.setText(null);
+                    txtCidade.setText(null);
+                    txtSenha.setText(null);
+                    txtEmail.setText(null);
+                    txtNrDocumento.setText(null);
+                    txtApelido.setText(null);
+                    txtCod.setText(null);
+                    txtNacionalidade.setText(null);
+                    txtUserName.setText(null);
+                    txtCell1.setText(null);
+                    txtCod.setText(null);
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -815,10 +861,12 @@ public class Usuario extends javax.swing.JInternalFrame {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
+        Actualizar();
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
+        Remover();
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void txtChaveKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtChaveKeyReleased

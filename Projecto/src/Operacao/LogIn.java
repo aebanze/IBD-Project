@@ -82,14 +82,14 @@ ResultSet rs = null;
         jLabel2.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/icons/User2-1-3.png"))); // NOI18N
         jPanel3.add(jLabel2);
-        jLabel2.setBounds(100, 30, 40, 70);
+        jLabel2.setBounds(70, 70, 40, 70);
 
         pWord.setBackground(new java.awt.Color(144, 180, 90));
         pWord.setFont(new java.awt.Font("OCR A Extended", 1, 16)); // NOI18N
         pWord.setText("Nguilazi");
         pWord.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jPanel3.add(pWord);
-        pWord.setBounds(140, 100, 241, 30);
+        pWord.setBounds(110, 140, 241, 30);
 
         txtUsuario.setBackground(new java.awt.Color(144, 180, 90));
         txtUsuario.setFont(new java.awt.Font("OCR A Extended", 1, 16)); // NOI18N
@@ -97,11 +97,11 @@ ResultSet rs = null;
         txtUsuario.setToolTipText("");
         txtUsuario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jPanel3.add(txtUsuario);
-        txtUsuario.setBounds(140, 40, 241, 30);
+        txtUsuario.setBounds(110, 80, 241, 30);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/icons/Key2.png"))); // NOI18N
         jPanel3.add(jLabel4);
-        jLabel4.setBounds(90, 100, 70, 60);
+        jLabel4.setBounds(60, 140, 70, 60);
 
         btnEntrar1.setBackground(new java.awt.Color(144, 180, 90));
         btnEntrar1.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -113,7 +113,7 @@ ResultSet rs = null;
             }
         });
         jPanel3.add(btnEntrar1);
-        btnEntrar1.setBounds(220, 150, 53, 23);
+        btnEntrar1.setBounds(190, 190, 53, 23);
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 270));
 
